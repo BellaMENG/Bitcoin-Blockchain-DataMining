@@ -148,11 +148,14 @@ void convertToCSR(const char* edgeList, const char* target_col_file, const char*
     
     ui number_edges = 0;
     ui number_nodes = 0;
+    ui max_ele = 0;
     vector<ui> col_index;
     vector<ui> row_index;
     
     ui prev_u = -1;
     ui curr_u = 0;
+    
+    ui node_id = 0;
 
     string tmp_str;
     stringstream ss;
@@ -163,17 +166,42 @@ void convertToCSR(const char* edgeList, const char* target_col_file, const char*
         ss >> u >> v;
         col_index.push_back(v);
         curr_u = u;
-        if (prev_u != curr_u) {
+        
+        for (int i = 0; i < (curr_u - prev_u); ++i) {
             row_index.push_back(number_edges);
         }
         prev_u = curr_u;
         number_edges++;
         if (ifs.eof())
             break;
+        
+        if (u > max_ele)
+            max_ele = u;
+        if (v > max_ele)
+            max_ele = v;
     }
-    row_index.push_back(number_edges);
+    for (int i = 0; i < (max_ele - curr_u + 1); ++i) {
+        row_index.push_back(number_edges);
+    }
     
-    number_nodes = curr_u + 1;
+    number_nodes = max_ele + 1;
+    
+    cout << "----Print Info----" << endl;
+    cout << "number of edges: " << number_edges << endl;
+    cout << "number of nodes: " << number_nodes << endl;
+    if (number_edges <= 50 && number_nodes <= 50) {
+        cout << "col_index: ";
+        for (auto itr = col_index.begin(); itr != col_index.end(); ++itr) {
+            cout << *itr << " ";
+        }
+        cout << endl;
+        cout << "row_index: ";
+        for (auto itr = row_index.begin(); itr != row_index.end(); ++itr) {
+            cout << *itr << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 
     ofstream cols(target_col_file, ios::binary);
     cout << "----Start to output the col_index to file----" << endl;
