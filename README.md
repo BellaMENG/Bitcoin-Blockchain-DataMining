@@ -1,9 +1,22 @@
-GPU24: on MIT dataset
+GPU24: on MIT dataset\
 
-original edge count is: 2536261805
+original edge count is: 2536261805\
+min\_ele is: 0, max\_ele is: 370269746, and number of edges is: 2219053854.\
+Time of preprocessing:   2945.19s\
+Time of sorting vector:   1326.35s\
 
-min\_ele is: 0, max\_ele is: 370269746, and number of edges is: 2219053854.
 
-Time of preprocessing:   2945.19s
+----Testing the CSRGraph class----\
+----Build from Binary Files----\
 
-Time of sorting vector:   1326.35s
+----Start to read the col_index to vector----\
+data size: 4\
+number of edges: 2219053854\
+----Start to read the row_index to vector----\
+data size: 4\
+number of nodes: 370269461\
+Read files time: 8097 ms\
+
+The following are the information about this graph:\
+The number of nodes in this graph is: 370269461, and the number of edges in this graph is: 2219053854\
+The size of this graph is too large to print. Terminated.\
