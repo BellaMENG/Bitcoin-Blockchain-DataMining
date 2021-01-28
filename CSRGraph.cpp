@@ -30,7 +30,6 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
         ss << tmp_str;
         ui u, v;
         ss >> u >> v;
-        cout << u << " " << v << endl;
         col_index.push_back(v);
         curr_u = u;
         if (prev_u != curr_u) {
@@ -49,14 +48,14 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
         cout << "----Start to output the col_index to file----" << endl;
         int data_size = sizeof(unsigned int);
         cols.write(reinterpret_cast<const char*>(&data_size), 4);
-        cols.write(reinterpret_cast<const char*>(&number_edges), 4);
-        cols.write(reinterpret_cast<const char *>(&col_index.front()), col_index.size() * 4);
+        cols.write(reinterpret_cast<const char*>(&number_edges), data_size);
+        cols.write(reinterpret_cast<const char *>(&col_index.front()), col_index.size() * data_size);
         
         ofstream rows(target_row_file, ios::binary);
         cout << "----Start to output the row_index to file----" << endl;
         rows.write(reinterpret_cast<const char*>(&data_size), 4);
-        rows.write(reinterpret_cast<const char*>(&number_nodes), 4);
-        rows.write(reinterpret_cast<const char *>(&row_index.front()), row_index.size() * 4);
+        rows.write(reinterpret_cast<const char*>(&number_nodes), data_size);
+        rows.write(reinterpret_cast<const char *>(&row_index.front()), row_index.size() * data_size);
     }
     cout << "Finish building the graph" << endl;
     cout << endl;

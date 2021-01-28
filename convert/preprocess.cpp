@@ -24,8 +24,12 @@ using ui = unsigned int;
 void test_preProcess(const char* []);
 void pre_process_edge_list(const char*, const char*, ui &, ui &, ui &, bool = true);
 
+void test_convert(const char* []);
+void convertToCSR(const char*, const char*, const char*);
+
+
 int main(int argc, const char* argv[]) {
-    test_preProcess(argv);
+    test_convert(argv);
     return 0;
 }
 
@@ -130,4 +134,60 @@ void pre_process_edge_list(const char* edge_list_fp, const char* target_file_nam
     for (auto itr = edges_list.begin(); itr != edges_list.end(); ++itr) {
         processed_list << (*itr).first << "\t" << (*itr).second << "\n";
     }
+}
+
+void test_convert(const char* argv[]) {
+    convertToCSR(argv[1], argv[2], argv[3]);
+}
+
+void convertToCSR(const char* edgeList, const char* target_col_file, const char* target_row_file) {
+    // edgeList should contain ordered edge list of the graph
+    // TODO: Add a step to check whether ordered and call the preprocess function
+    auto start = chrono::high_resolution_clock::now();
+    ifstream ifs(edgeList);
+    
+    ui number_edges = 0;
+    ui number_nodes = 0;
+    vector<ui> col_index;
+    vector<ui> row_index;
+    
+    ui prev_u = -1;
+    ui curr_u = 0;
+
+    string tmp_str;
+    stringstream ss;
+    while(getline(ifs, tmp_str)) {
+        ss.clear();
+        ss << tmp_str;
+        ui u, v;
+        ss >> u >> v;
+        col_index.push_back(v);
+        curr_u = u;
+        if (prev_u != curr_u) {
+            row_index.push_back(number_edges);
+        }
+        prev_u = curr_u;
+        number_edges++;
+        if (ifs.eof())
+            break;
+    }
+    row_index.push_back(number_edges);
+    
+    number_nodes = curr_u + 1;
+
+    ofstream cols(target_col_file, ios::binary);
+    cout << "----Start to output the col_index to file----" << endl;
+    int data_size = sizeof(unsigned int);
+    cols.write(reinterpret_cast<const char*>(&data_size), 4);
+    cols.write(reinterpret_cast<const char*>(&number_edges), data_size);
+    cols.write(reinterpret_cast<const char *>(&col_index.front()), col_index.size() * data_size);
+    
+    ofstream rows(target_row_file, ios::binary);
+    cout << "----Start to output the row_index to file----" << endl;
+    rows.write(reinterpret_cast<const char*>(&data_size), 4);
+    rows.write(reinterpret_cast<const char*>(&number_nodes), data_size);
+    rows.write(reinterpret_cast<const char *>(&row_index.front()), row_index.size() * data_size);
+    auto end = chrono::high_resolution_clock::now();
+    cout << "Output to files time: " << chrono::duration<double>(end - start).count() << " s\n";
+    cout << endl;
 }
