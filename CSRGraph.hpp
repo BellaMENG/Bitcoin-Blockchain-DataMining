@@ -38,6 +38,11 @@ public:
     ui getNumberOfEdges();
     ui printNumberOfNodes();
     ui printNumberOfEdges();
+
+// TODO: implement kcores
+// TODO: implement bfs/dfs (does it make sense?)
+// TODO: implement pagerank
+
 };
 
 
