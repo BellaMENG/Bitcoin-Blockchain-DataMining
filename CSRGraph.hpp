@@ -34,6 +34,10 @@ public:
     void printGraph();
     vector<ui> getNeighbors(ui);
     ui getDegree(ui);
+    ui getNumberOfNodes();
+    ui getNumberOfEdges();
+    ui printNumberOfNodes();
+    ui printNumberOfEdges();
 };
 
 

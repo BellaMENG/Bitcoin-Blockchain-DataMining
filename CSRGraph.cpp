@@ -121,6 +121,10 @@ void CSRGraph::printGraph() {
 
 vector<ui> CSRGraph::getNeighbors(ui node_id) {
     vector<ui> neighbors;
+    if (node_id < 0 || node_id >= number_nodes) {
+        cerr << "invalid node id" << endl;
+        return neighbors;
+    }
     ui row_start = row_index[node_id];
     ui row_end = row_index[node_id+1];
     for (ui i = row_start; i < row_end; ++i) {
@@ -130,7 +134,29 @@ vector<ui> CSRGraph::getNeighbors(ui node_id) {
 }
 
 ui CSRGraph::getDegree(ui node_id) {
+    if (node_id < 0 || node_id >= number_nodes) {
+        cerr << "invalid node id" << endl;
+        return -1;
+    }
     ui row_start = row_index[node_id];
     ui row_end = row_index[node_id+1];
     return (row_end - row_start);
+}
+
+ui CSRGraph::getNumberOfNodes() {
+    return number_nodes;
+}
+
+ui CSRGraph::getNumberOfEdges() {
+    return number_edges;
+}
+
+ui CSRGraph::printNumberOfNodes() {
+    cout << "Number of nodes in this graph: " << number_nodes << endl;
+    return number_nodes;
+}
+
+ui CSRGraph::printNumberOfEdges() {
+    cout << "Number of edges in this graph: " << number_edges << endl;
+    return number_edges;
 }

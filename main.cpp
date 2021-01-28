@@ -62,7 +62,10 @@ void test_csrgraph_class(const char* argv[]) {
     cout << endl;
     
     cout << "----Print the neighbors of a node----" << endl;
-    vector<ui> neighbors = g2.getNeighbors(0);
+    ui node_id;
+    cout << "Please enter a node id: ";
+    cin >> node_id;
+    vector<ui> neighbors = g2.getNeighbors(node_id);
     for (auto itr = neighbors.begin(); itr != neighbors.end(); ++itr) {
         cout << *itr << " ";
     }
@@ -71,7 +74,9 @@ void test_csrgraph_class(const char* argv[]) {
     cout << endl;
     
     cout << "----Print the degree of a node----" << endl;
-    cout << g2.getDegree(0) << endl;
+    cout << "Please enter a node id: ";
+    cin >> node_id;
+    cout << g2.getDegree(node_id) << endl;
     cout << "----end----" << endl;
     cout << endl;
 }
