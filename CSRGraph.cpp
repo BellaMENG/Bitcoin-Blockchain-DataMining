@@ -10,6 +10,9 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <chrono>
+
+using namespace chrono;
 
 CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const char* target_col_file, const char* target_row_file) {
     ifstream ifs(ordered_edge_list);
@@ -44,16 +47,53 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
         // TODO: append number_nodes to row_index, and number_edges to col_index
         ofstream cols(target_col_file, ios::binary);
         cout << "----Start to output the col_index to file----" << endl;
+        int data_size = sizeof(unsigned int);
+        cols.write(reinterpret_cast<const char*>(&data_size), 4);
+        cols.write(reinterpret_cast<const char*>(&number_edges), 4);
         cols.write(reinterpret_cast<const char *>(&col_index.front()), col_index.size() * 4);
         
         ofstream rows(target_row_file, ios::binary);
         cout << "----Start to output the row_index to file----" << endl;
+        rows.write(reinterpret_cast<const char*>(&data_size), 4);
+        rows.write(reinterpret_cast<const char*>(&number_nodes), 4);
         rows.write(reinterpret_cast<const char *>(&row_index.front()), row_index.size() * 4);
     }
+    cout << "Finish building the graph" << endl;
+    cout << endl;
 }
 
 CSRGraph::CSRGraph(const char* col_index_file, const char* row_index_file) {
     // TODO: directly import col_index and row_index to two vectors
+    auto start = high_resolution_clock::now();
+    
+    ifstream col_file(col_index_file, ios::binary);
+    cout << "----Start to read the col_index to vector----" << endl;
+    int data_size;
+    col_file.read(reinterpret_cast<char *>(&data_size), 4);
+    cout << "data size: " << data_size << endl;
+    
+    col_file.read(reinterpret_cast<char *>(&number_edges), data_size);
+    cout << "number of edges: " << number_edges << endl;
+    col_index.resize(number_edges);
+    col_file.read(reinterpret_cast<char *>(&col_index.front()), sizeof(data_size)*number_edges);
+
+    
+    ifstream row_file(row_index_file, ios::binary);
+    cout << "----Start to read the row_index to vector----" << endl;
+
+    row_file.read(reinterpret_cast<char *>(&data_size), 4);
+    cout << "data size: " << data_size << endl;
+    
+    row_file.read(reinterpret_cast<char *>(&number_nodes), data_size);
+    cout << "number of nodes: " << number_nodes << endl;
+    
+    row_index.resize(number_nodes+1);
+    row_file.read(reinterpret_cast<char *>(&row_index.front()), sizeof(data_size)*(number_nodes+1));
+
+    auto end = high_resolution_clock::now();
+    
+    cout << "Read files time: " << duration_cast<milliseconds>(end - start).count() << " ms\n";
+    cout << endl;
 }
 
 void CSRGraph::printInfo() {

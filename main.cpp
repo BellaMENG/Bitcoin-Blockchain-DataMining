@@ -43,11 +43,21 @@ int main(int argc, const char * argv[]) {
 }
 
 void test_csrgraph_class(const char* argv[]) {
-    const char* edge_list_fp = argv[1];
-    cout << "--- Testing the CSRGraph class ---" << endl;
-    CSRGraph g(edge_list_fp);
-    g.printInfo();
-    g.printGraph();
+    int convert;
+    sscanf(argv[2], "%d", &convert);
+    cout << "----Testing the CSRGraph class----" << endl;
+    cout << "----Build from Edge list----" << endl;
+    CSRGraph g1(argv[1], convert, argv[3], argv[4]);
+    g1.printInfo();
+    g1.printGraph();
+    
+    cout << endl;
+    cout << endl;
+    
+    cout << "----Build from Binary Files----" << endl;
+    CSRGraph g2(argv[3], argv[4]);
+    g2.printInfo();
+    g2.printGraph();
 }
 
 
