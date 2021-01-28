@@ -155,8 +155,6 @@ void convertToCSR(const char* edgeList, const char* target_col_file, const char*
     ui prev_u = -1;
     ui curr_u = 0;
     
-    ui node_id = 0;
-
     string tmp_str;
     stringstream ss;
     while(getline(ifs, tmp_str)) {
