@@ -118,3 +118,19 @@ void CSRGraph::printGraph() {
     }
     cout << endl;
 }
+
+vector<ui> CSRGraph::getNeighbors(ui node_id) {
+    vector<ui> neighbors;
+    ui row_start = row_index[node_id];
+    ui row_end = row_index[node_id+1];
+    for (ui i = row_start; i < row_end; ++i) {
+        neighbors.push_back(col_index[i]);
+    }
+    return neighbors;
+}
+
+ui CSRGraph::getDegree(ui node_id) {
+    ui row_start = row_index[node_id];
+    ui row_end = row_index[node_id+1];
+    return (row_end - row_start);
+}

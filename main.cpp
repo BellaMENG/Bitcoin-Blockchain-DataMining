@@ -58,6 +58,22 @@ void test_csrgraph_class(const char* argv[]) {
     CSRGraph g2(argv[1], argv[2]);
     g2.printInfo();
     g2.printGraph();
+    cout << "----end----" << endl;
+    cout << endl;
+    
+    cout << "----Print the neighbors of a node----" << endl;
+    vector<ui> neighbors = g2.getNeighbors(0);
+    for (auto itr = neighbors.begin(); itr != neighbors.end(); ++itr) {
+        cout << *itr << " ";
+    }
+    cout << endl;
+    cout << "----end----" << endl;
+    cout << endl;
+    
+    cout << "----Print the degree of a node----" << endl;
+    cout << g2.getDegree(0) << endl;
+    cout << "----end----" << endl;
+    cout << endl;
 }
 
 

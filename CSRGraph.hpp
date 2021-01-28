@@ -32,6 +32,8 @@ public:
     CSRGraph(const char* col_index_file, const char* row_index_file);
     void printInfo();
     void printGraph();
+    vector<ui> getNeighbors(ui);
+    ui getDegree(ui);
 };
 
 
