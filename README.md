@@ -44,5 +44,5 @@ number of nodes: 370269747\
 Read files time: 8143 ms
 
 The following are the information about this graph:\
-The number of nodes in this graph is: 370269747, and the number of edges in this graph is: 2219053854
+The number of nodes in this graph is: 370269747, and the number of edges in this graph is: 2219053854\
 The size of this graph is too large to print. Terminated.
