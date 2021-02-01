@@ -41,6 +41,8 @@ public:
 
 // TODO: implement kcores
 // TODO: implement bfs/dfs (does it make sense?)
+    
+    bool isReachable(ui, ui);
 // TODO: implement pagerank
 
 };

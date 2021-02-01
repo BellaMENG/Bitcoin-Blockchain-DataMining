@@ -11,6 +11,7 @@
 #include <sstream>
 #include <string>
 #include <chrono>
+#include <list>
 
 using namespace chrono;
 
@@ -159,4 +160,35 @@ ui CSRGraph::printNumberOfNodes() {
 ui CSRGraph::printNumberOfEdges() {
     cout << "Number of edges in this graph: " << number_edges << endl;
     return number_edges;
+}
+
+bool CSRGraph::isReachable(ui s, ui d) {
+    if (s == d)
+        return true;
+    
+    bool *visited = new bool[number_nodes];
+    for (ui i = 0; i < number_nodes; ++i) {
+        visited[i] = false;
+    }
+    
+    // Initialize BFS algo
+    visited[s] = true;
+    list<ui> bfs;
+    bfs.push_back(s);
+    
+    while (!bfs.empty()) {
+        s = bfs.front();
+        bfs.pop_front();
+        // iterate through adj list of node s
+        vector<ui> neighbors = this->getNeighbors(s);
+        for (auto itr = neighbors.begin(); itr != neighbors.end(); ++itr) {
+            if (*itr == d)
+                return true;
+            if (!visited[*itr]) {
+                visited[*itr] = true;
+                bfs.push_back(*itr);
+            }
+        }
+    }
+    return false;
 }
