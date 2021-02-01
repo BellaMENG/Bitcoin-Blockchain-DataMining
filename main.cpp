@@ -79,6 +79,17 @@ void test_csrgraph_class(const char* argv[]) {
     cout << g2.getDegree(node_id) << endl;
     cout << "----end----" << endl;
     cout << endl;
+    
+    cout << "----isReachable function----" << endl;
+    ui s, d;
+    cout << "Please enter source node id: ";
+    cin >> s;
+    cout << endl;
+    cout << "Please enter destination node id: ";
+    cin >> d;
+    cout << endl;
+    cout << "From node " << s << " to node " << d << ", is reachable? " << g2.isReachable(s, d) << endl;
+    cout << endl;
 }
 
 
