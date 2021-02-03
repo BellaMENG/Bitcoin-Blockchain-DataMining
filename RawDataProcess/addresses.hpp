@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <string>
 
 using namespace std;
 using ui = unsigned int;
@@ -18,6 +19,7 @@ using ui = unsigned int;
 class bitcoinAddress {
     ui id;
     ui balance;
+    string address;
 };
 
 #endif /* addresses_hpp */

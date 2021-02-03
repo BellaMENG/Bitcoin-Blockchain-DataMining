@@ -62,7 +62,7 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
     cout << endl;
 }
 
-CSRGraph::CSRGraph(const char* col_index_file, const char* row_index_file) {
+CSRGraph::CSRGraph(const char* col_index_file, const char* row_index_file, const char* degree_file) {
     // TODO: directly import col_index and row_index to two vectors
     auto start = high_resolution_clock::now();
     
@@ -94,6 +94,17 @@ CSRGraph::CSRGraph(const char* col_index_file, const char* row_index_file) {
     
     cout << "Read files time: " << duration_cast<milliseconds>(end - start).count() << " ms\n";
     cout << endl;
+    
+    // initialize the degree vector
+    degrees.resize(number_nodes);
+    for (int i = 0; i < number_nodes; ++i) {
+        degrees[i] = row_index[i+1] - row_index[i];
+    }
+    
+    cout << "Output to degree file" << endl;
+    data_size = sizeof(unsigned int);
+    ofstream ofs(degree_file, ios::binary);
+    ofs.write(reinterpret_cast<const char *>(&degrees.front()), degrees.size() * data_size);
 }
 
 void CSRGraph::printInfo() {
@@ -192,3 +203,4 @@ bool CSRGraph::isReachable(ui s, ui d) {
     }
     return false;
 }
+

@@ -55,7 +55,7 @@ void test_csrgraph_class(const char* argv[]) {
 //    cout << endl;
 //
     cout << "----Build from Binary Files----" << endl;
-    CSRGraph g2(argv[1], argv[2]);
+    CSRGraph g2(argv[1], argv[2], argv[3]);
     g2.printInfo();
     g2.printGraph();
     cout << "----end----" << endl;

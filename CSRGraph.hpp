@@ -27,9 +27,12 @@ class CSRGraph {
     // row_index, has size of (number_of_nodes + 1)
     // row_index, first element is 0 and last element is number_of_edges
     vector<ui> row_index;
+    // degree vector, stores the outgoing edges of each node
+    vector<ui> degrees;
+    
 public:
     CSRGraph(const char* ordered_edge_list, bool = true, const char* col_file = "col_index.dat", const char* row_file = "row_index.dat");
-    CSRGraph(const char* col_index_file, const char* row_index_file);
+    CSRGraph(const char* col_index_file, const char* row_index_file, const char* degree_file = "degree.dat");
     void printInfo();
     void printGraph();
     vector<ui> getNeighbors(ui);
