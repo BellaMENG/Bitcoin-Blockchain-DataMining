@@ -204,3 +204,40 @@ bool CSRGraph::isReachable(ui s, ui d) {
     return false;
 }
 
+void CSRGraph::pagerank(ui iterations, double convergence) {
+    double sum_pr;
+    double dangling_pr;
+    double diff = 1;
+    
+    ui num_iterations = 0;
+    vector<double> old_pr;
+    if (number_nodes == 0)
+        return;
+    pr.resize(number_nodes);
+    pr[0] = 1;
+    
+    while (diff > convergence && num_iterations < iterations) {
+        sum_pr = 0;
+        dangling_pr = 0;
+        
+        for (ui k = 0; k < pr.size(); ++k) {
+            double cpr = pr[k];
+            sum_pr += cpr;
+            if (degrees[k] == 0) {
+                dangling_pr += cpr;
+            }
+        }
+        
+        // normalize the pr vector
+        if (num_iterations == 0) {
+            old_pr = pr;
+        } else {
+            for (ui i = 0; i < pr.size(); ++i) {
+                old_pr[i] = pr[i] / sum_pr;
+            }
+        }
+        
+        sum_pr = 1;
+        
+    }
+}
