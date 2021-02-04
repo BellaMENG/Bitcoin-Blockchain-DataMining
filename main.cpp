@@ -93,6 +93,7 @@ void test_csrgraph_class(const char* argv[]) {
     
     cout << "----PageRank----" << endl;
     g2.pagerank();
+    g2.printPageRank();
 }
 
 
