@@ -12,6 +12,7 @@
 #include <string>
 #include <chrono>
 #include <list>
+#include <cmath>
 
 using namespace chrono;
 
@@ -204,7 +205,7 @@ bool CSRGraph::isReachable(ui s, ui d) {
     return false;
 }
 
-void CSRGraph::pagerank(ui iterations, double convergence) {
+void CSRGraph::pagerank(ui iterations, double convergence, double alpha) {
     double sum_pr;
     double dangling_pr;
     double diff = 1;
@@ -238,6 +239,21 @@ void CSRGraph::pagerank(ui iterations, double convergence) {
         }
         
         sum_pr = 1;
+        double one_Av = alpha * dangling_pr / number_nodes;
+        double one_Iv = (1 - alpha) * sum_pr / number_nodes;
         
+        diff = 0;
+        for (ui i = 0; i < number_nodes; ++i) {
+            double h = 0.0;
+            vector<ui> neighbors = this->getNeighbors(i);
+            for (auto itr = neighbors.begin(); itr != neighbors.end(); ++itr) {
+                double h_v = (degrees[*itr]) ? 1.0 / degrees[*itr] : 0.0;
+                h += h_v * old_pr[*itr];
+            }
+            h *= alpha;
+            pr[i] = h + one_Av + one_Iv;
+            diff += fabs(pr[i] - old_pr[i]);
+        }
+        num_iterations++;
     }
 }
