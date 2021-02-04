@@ -48,6 +48,7 @@ public:
     bool isReachable(ui, ui);
 // TODO: implement pagerank
     void pagerank(ui = 100, double = 0.0001, double = 0.85);
+    void printPageRank();
 };
 
 

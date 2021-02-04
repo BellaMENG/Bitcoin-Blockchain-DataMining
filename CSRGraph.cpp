@@ -257,3 +257,13 @@ void CSRGraph::pagerank(ui iterations, double convergence, double alpha) {
         num_iterations++;
     }
 }
+
+void CSRGraph::printPageRank() {
+    if (number_nodes > 50) {
+        cout << "too many to load" << endl;
+        return;
+    }
+    for (auto itr = pr.begin(); itr != pr.end(); ++itr) {
+        cout << "i: " << *itr << endl;
+    }
+}

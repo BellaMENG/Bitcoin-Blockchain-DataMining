@@ -90,6 +90,9 @@ void test_csrgraph_class(const char* argv[]) {
     cout << endl;
     cout << "From node " << s << " to node " << d << ", is reachable? " << g2.isReachable(s, d) << endl;
     cout << endl;
+    
+    cout << "----PageRank----" << endl;
+    g2.pagerank();
 }
 
 
