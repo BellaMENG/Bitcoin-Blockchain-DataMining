@@ -29,11 +29,12 @@ class CSRGraph {
     vector<ui> row_index;
     // degree vector, stores the outgoing edges of each node
     vector<ui> degrees;
-    vector<double> pr;
+    vector<double> pr_;
     
 public:
-    CSRGraph(const char* ordered_edge_list, bool = true, const char* col_file = "col_index.dat", const char* row_file = "row_index.dat");
-    CSRGraph(const char* col_index_file, const char* row_index_file, const char* degree_file = "degree.dat");
+//    CSRGraph(const char* ordered_edge_list, bool = true, const char* col_file = "col_index.dat", const char* row_file = "row_index.dat");
+    
+    void readFromFile(const char* col_index_file, const char* row_index_file, const char* degree_file = "degree.dat");
     void printInfo();
     void printGraph();
     vector<ui> getNeighbors(ui);
@@ -47,8 +48,9 @@ public:
 // TODO: implement bfs/dfs (does it make sense?)
     bool isReachable(ui, ui);
 // TODO: implement pagerank
-    void pagerank(ui = 100, double = 0.0001, double = 0.85);
+//    void pagerank(ui = 10000, double = 0.0001, double = 0.85);
     void printPageRank();
+    void setPr(vector<double> ranks) {pr_ = ranks;}
 };
 
 

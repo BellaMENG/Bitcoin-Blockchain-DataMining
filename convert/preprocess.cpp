@@ -22,29 +22,31 @@ using phmap::flat_hash_set;
 using ui = unsigned int;
 
 void test_preProcess(const char* []);
-void pre_process_edge_list(const char*, const char*, ui &, ui &, ui &, bool = true);
+void pre_process_edge_list(const char*, const char*, ui &, ui &, ui &, bool = true, bool = false);
 
 void test_convert(const char* []);
 void convertToCSR(const char*, const char*, const char*);
 
 
 int main(int argc, const char* argv[]) {
+//    test_preProcess(argv);
     test_convert(argv);
     return 0;
 }
 
 void test_preProcess(const char* argv[]) {
-    ui n;
-    int directed;
-    sscanf(argv[2], "%u", &n);
+    
+    int directed, transpose;
     sscanf(argv[3], "%d", &directed);
+    sscanf(argv[4], "%d", &transpose);
     ui min_ele, max_ele, number_edges;
     min_ele = UINT_MAX;
     max_ele = 0;
-    pre_process_edge_list(argv[1], argv[2], min_ele, max_ele, number_edges, directed);
+    cout << directed << " " << transpose << endl;
+    pre_process_edge_list(argv[1], argv[2], min_ele, max_ele, number_edges, directed, transpose);
 }
 
-void pre_process_edge_list(const char* edge_list_fp, const char* target_file_name, ui &min_ele, ui &max_ele, ui &number_edges, bool directed) {
+void pre_process_edge_list(const char* edge_list_fp, const char* target_file_name, ui &min_ele, ui &max_ele, ui &number_edges, bool directed, bool transpose) {
     
     auto start = chrono::high_resolution_clock::now();
     max_ele = 0;
@@ -69,8 +71,13 @@ void pre_process_edge_list(const char* edge_list_fp, const char* target_file_nam
             continue;
         }
         else {
-            u = tmp1;
-            v = tmp2;
+            if (!transpose) {
+                u = tmp1;
+                v = tmp2;
+            } else {
+                v = tmp1;
+                u = tmp2;
+            }
         }
         if (u == v) {
             continue;
@@ -82,6 +89,7 @@ void pre_process_edge_list(const char* edge_list_fp, const char* target_file_nam
                 v = tmp;
             }
         }
+        
         if ((edges_set.insert(make_pair(u, v))).second) {
             edges_list.push_back(make_pair(u, v));
             if (u > v) {

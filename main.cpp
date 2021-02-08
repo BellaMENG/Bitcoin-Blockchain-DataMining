@@ -16,6 +16,7 @@
 #include "parallel_hashmap/btree.h"
 #include "Graph.hpp"
 #include "CSRGraph.hpp"
+#include "PageRank.hpp"
 
 using namespace std;
 using phmap::flat_hash_set;
@@ -54,13 +55,15 @@ void test_csrgraph_class(const char* argv[]) {
 //    cout << endl;
 //    cout << endl;
 //
+/*
     cout << "----Build from Binary Files----" << endl;
     CSRGraph g2(argv[1], argv[2], argv[3]);
     g2.printInfo();
     g2.printGraph();
     cout << "----end----" << endl;
     cout << endl;
-    
+*/
+    /*
     cout << "----Print the neighbors of a node----" << endl;
     ui node_id;
     cout << "Please enter a node id: ";
@@ -72,14 +75,17 @@ void test_csrgraph_class(const char* argv[]) {
     cout << endl;
     cout << "----end----" << endl;
     cout << endl;
-    
+
+     
     cout << "----Print the degree of a node----" << endl;
     cout << "Please enter a node id: ";
     cin >> node_id;
     cout << g2.getDegree(node_id) << endl;
     cout << "----end----" << endl;
     cout << endl;
+    */
     
+    /*
     cout << "----isReachable function----" << endl;
     ui s, d;
     cout << "Please enter source node id: ";
@@ -90,10 +96,20 @@ void test_csrgraph_class(const char* argv[]) {
     cout << endl;
     cout << "From node " << s << " to node " << d << ", is reachable? " << g2.isReachable(s, d) << endl;
     cout << endl;
+    */
     
-    cout << "----PageRank----" << endl;
-    g2.pagerank();
-    g2.printPageRank();
+//    cout << "----PageRank----" << endl;
+//    g2.pagerank();
+//    g2.printPageRank();
+    
+    cout << "----Testing PageRank Class----" << endl;
+    PageRank pr;
+    pr.initGraph(argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
+    
+    cout << endl;
+    cout << "----Testing updatePageRank----" << endl;
+    pr.updateRanks(10000, 0.00001, 0.85);
+    pr.printPageRank();
 }
 
 

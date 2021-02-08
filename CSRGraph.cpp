@@ -12,10 +12,10 @@
 #include <string>
 #include <chrono>
 #include <list>
-#include <cmath>
 
 using namespace chrono;
 
+/*
 CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const char* target_col_file, const char* target_row_file) {
     ifstream ifs(ordered_edge_list);
     
@@ -62,8 +62,9 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
     cout << "Finish building the graph" << endl;
     cout << endl;
 }
-
-CSRGraph::CSRGraph(const char* col_index_file, const char* row_index_file, const char* degree_file) {
+*/
+ 
+void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_file, const char* degree_file) {
     // TODO: directly import col_index and row_index to two vectors
     auto start = high_resolution_clock::now();
     
@@ -205,7 +206,15 @@ bool CSRGraph::isReachable(ui s, ui d) {
     return false;
 }
 
+
+/*
 void CSRGraph::pagerank(ui iterations, double convergence, double alpha) {
+    
+    for (auto itr = degrees.begin(); itr != degrees.end(); ++itr) {
+        cout << *itr << " ";
+    }
+    cout << endl;
+
     double sum_pr;
     double dangling_pr;
     double diff = 1;
@@ -214,27 +223,29 @@ void CSRGraph::pagerank(ui iterations, double convergence, double alpha) {
     vector<double> old_pr;
     if (number_nodes == 0)
         return;
-    pr.resize(number_nodes);
-    pr[0] = 1;
+    (*pr_).resize(number_nodes);
+    (*pr_)[0] = 1;
     
     while (diff > convergence && num_iterations < iterations) {
         sum_pr = 0;
         dangling_pr = 0;
         
-        for (ui k = 0; k < pr.size(); ++k) {
-            double cpr = pr[k];
+        for (ui k = 0; k < (*pr_).size(); ++k) {
+            double cpr = (*pr_)[k];
             sum_pr += cpr;
             if (degrees[k] == 0) {
                 dangling_pr += cpr;
             }
         }
-        
+        if (num_iterations < 10) {
+            cout << sum_pr << " " << dangling_pr << endl;
+        }
         // normalize the pr vector
         if (num_iterations == 0) {
-            old_pr = pr;
+            old_pr = (*pr_);
         } else {
-            for (ui i = 0; i < pr.size(); ++i) {
-                old_pr[i] = pr[i] / sum_pr;
+            for (ui i = 0; i < (*pr_).size(); ++i) {
+                old_pr[i] = (*pr_)[i] / sum_pr;
             }
         }
         
@@ -247,23 +258,43 @@ void CSRGraph::pagerank(ui iterations, double convergence, double alpha) {
             double h = 0.0;
             vector<ui> neighbors = this->getNeighbors(i);
             for (auto itr = neighbors.begin(); itr != neighbors.end(); ++itr) {
-                double h_v = (degrees[*itr]) ? 1.0 / degrees[*itr] : 0.0;
+//                if (num_iterations < 10)
+//                    cout << *itr << " ";
+                double h_v = (degrees[*itr]) ? (1.0 / degrees[*itr]) : 0.0;
                 h += h_v * old_pr[*itr];
             }
+            if (num_iterations < 10)
+                cout << h << endl;
             h *= alpha;
-            pr[i] = h + one_Av + one_Iv;
-            diff += fabs(pr[i] - old_pr[i]);
+            (*pr_)[i] = h + one_Av + one_Iv;
+            diff += fabs((*pr_)[i] - old_pr[i]);
         }
+        
         num_iterations++;
+        if (num_iterations < 10) {
+            for (auto itr = (*pr_).begin(); itr != pr.end(); ++itr) {
+                cout << *itr << " ";
+            }
+            cout << endl;
+            cout << endl;
+            for (auto itr = old_pr.begin(); itr != old_pr.end(); ++itr) {
+                cout << *itr << " ";
+            }
+            cout << endl;
+            cout << endl;
+        }
     }
 }
+*/
 
+ 
 void CSRGraph::printPageRank() {
     if (number_nodes > 50) {
         cout << "too many to load" << endl;
         return;
     }
-    for (auto itr = pr.begin(); itr != pr.end(); ++itr) {
-        cout << "i: " << *itr << endl;
+    ui i = 0;
+    for (auto itr = pr_.begin(); itr != pr_.end(); ++itr) {
+        cout << i++ << ": " << *itr << endl;
     }
 }
