@@ -51,6 +51,7 @@ public:
 //    void pagerank(ui = 10000, double = 0.0001, double = 0.85);
     void printPageRank();
     void setPr(vector<double> ranks) {pr_ = ranks;}
+    vector<double> getPr() {return pr_;}
 };
 
 

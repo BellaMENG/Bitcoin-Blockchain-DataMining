@@ -27,6 +27,7 @@ public:
     
     void updateRanks(ui , double , double);
     void printPageRank();
+    void outputPageRank(const char*);
 };
 
 #endif /* PageRank_hpp */

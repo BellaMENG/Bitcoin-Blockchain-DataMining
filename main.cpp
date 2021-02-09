@@ -110,6 +110,7 @@ void test_csrgraph_class(const char* argv[]) {
     cout << "----Testing updatePageRank----" << endl;
     pr.updateRanks(10000, 0.00001, 0.85);
     pr.printPageRank();
+    pr.outputPageRank(argv[7]);
 }
 
 

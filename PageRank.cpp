@@ -8,6 +8,7 @@
 
 #include "PageRank.hpp"
 #include <cmath>
+#include <fstream>
 
 
 void PageRank::initGraph(const char* col_fp, const char* row_fp, const char* degree_fp, const char* col_fp_t, const char* row_fp_t, const char* degree_fp_t) {
@@ -97,4 +98,12 @@ void PageRank::updateRanks(ui iterations, double convergence, double alpha) {
 
 void PageRank::printPageRank() {
     graph_->printPageRank();
+}
+
+void PageRank::outputPageRank(const char* pr_fp) {
+    int data_size = sizeof(double);
+    vector<double> pr = graph_->getPr();
+    ofstream ofs(pr_fp, ios::binary);
+    ofs.write(reinterpret_cast<const char *>(&pr.front()), pr.size() * data_size);
+    cout << "finished writing pageranks to file, the size of the vector is: " << pr.size() << endl;
 }
