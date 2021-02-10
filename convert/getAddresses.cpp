@@ -24,6 +24,8 @@ int main(int argc, const char* argv[]) {
 
 void get_addresses(const char* index_fp, const char* addresses_fp, const char* output_fp, bool bin_format) {
     // read in all the index
+    cout << "start to get addresses" << endl;
+    
     int data_size;
     unsigned long vsize;
     vector<unsigned int> indexv;
