@@ -9,7 +9,9 @@
 #include "PageRank.hpp"
 #include <cmath>
 #include <fstream>
+#include <chrono>
 
+using namespace chrono;
 
 void PageRank::initGraph(const char* col_fp, const char* row_fp, const char* degree_fp, const char* col_fp_t, const char* row_fp_t, const char* degree_fp_t) {
     
@@ -103,7 +105,11 @@ void PageRank::printPageRank() {
 void PageRank::outputPageRank(const char* pr_fp) {
     int data_size = sizeof(double);
     vector<double> pr = graph_->getPr();
+    unsigned long pr_size = pr.size();
+    
     ofstream ofs(pr_fp, ios::binary);
+    ofs.write(reinterpret_cast<const char*>(&data_size), 4);
+    ofs.write(reinterpret_cast<const char*>(&pr_size), sizeof(unsigned long));
     ofs.write(reinterpret_cast<const char *>(&pr.front()), pr.size() * data_size);
     cout << "finished writing pageranks to file, the size of the vector is: " << pr.size() << endl;
 }
