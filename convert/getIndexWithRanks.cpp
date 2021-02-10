@@ -34,6 +34,9 @@ void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long
     ofstream ofs(target_fp, ios::binary);
     ofs.write(reinterpret_cast<const char*>(&data_size), 4);
     ofs.write(reinterpret_cast<const char*>(&number_of_lines), data_size);
+    
+    cout << "With pagerank numbers? " << with_pr << endl;
+    
     if (with_pr) {
         ofs.write(reinterpret_cast<const char*>(&index_pr.front()), number_of_lines * sizeof(pair<unsigned int, double>));
     } else {
