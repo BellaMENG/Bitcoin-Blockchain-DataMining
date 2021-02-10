@@ -18,7 +18,7 @@ using namespace std;
 void get_addresses(const char*, const char*, const char*, bool = false);
 
 int main(int argc, const char* argv[]) {
-    
+    get_addresses(argv[1], argv[2], argv[3]);
     return 0;
 }
 
