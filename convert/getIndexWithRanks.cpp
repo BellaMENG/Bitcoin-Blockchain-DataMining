@@ -12,14 +12,14 @@
 #include <vector>
 
 using namespace std;
-void get_list_of_indices(const char*, const char*, unsigned long = 1000, bool = false);
+void get_list_of_indices(const char*, const char*, unsigned long = 1000, bool = false, bool = true);
 
 int main(int argc, const char* argv[]) {
     get_list_of_indices(argv[1], argv[2]);
     return 0;
 }
 
-void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long number_of_lines, bool with_pr) {
+void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long number_of_lines, bool with_pr, bool save_as_bin) {
     ifstream ifs(pr_fp, ios::binary);
     
     int data_size;
