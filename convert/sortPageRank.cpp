@@ -11,6 +11,7 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
 using namespace std;
 using namespace chrono;
