@@ -18,6 +18,7 @@ using namespace std;
 void get_addresses(const char*, const char*, const char*, bool = false);
 
 int main(int argc, const char* argv[]) {
+    cout << "why" << endl;
     get_addresses(argv[1], argv[2], argv[3]);
     return 0;
 }
@@ -48,7 +49,7 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
         ss >> id >> addr;
         addresses.push_back(addr);
     }
-    
+
     // output the selected addresses
     vector<string> selected_addr;
     for (auto itr = indexv.begin(); itr != indexv.end(); ++itr) {
