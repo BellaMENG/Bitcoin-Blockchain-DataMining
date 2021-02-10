@@ -33,6 +33,7 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
     ifstream id_file(index_fp, ios::binary);
     id_file.read(reinterpret_cast<char*>(&data_size), 4);
     id_file.read(reinterpret_cast<char*>(&vsize), data_size);
+    indexv.resize(vsize);
     id_file.read(reinterpret_cast<char*>(&indexv.front()), vsize * sizeof(unsigned int));
     
     // read in addresses file
