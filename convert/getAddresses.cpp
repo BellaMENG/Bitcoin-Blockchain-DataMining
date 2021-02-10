@@ -18,14 +18,13 @@ using namespace std;
 void get_addresses(const char*, const char*, const char*, bool = false);
 
 int main(int argc, const char* argv[]) {
-    cout << "why" << endl;
     get_addresses(argv[1], argv[2], argv[3]);
     return 0;
 }
 
 void get_addresses(const char* index_fp, const char* addresses_fp, const char* output_fp, bool bin_format) {
     // read in all the index
-    cout << "start to get addresses" << endl;
+    cout << "start to read in selected index" << endl;
     
     int data_size;
     unsigned long vsize;
@@ -35,8 +34,9 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
     id_file.read(reinterpret_cast<char*>(&vsize), data_size);
     indexv.resize(vsize);
     id_file.read(reinterpret_cast<char*>(&indexv.front()), vsize * sizeof(unsigned int));
-    
+    cout << "finished reading index" << endl;
     // read in addresses file
+    cout << "start to read in all addresses" << endl;
     ifstream addr_file(addresses_fp);
     vector<string> addresses;
     
@@ -50,7 +50,7 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
         ss >> id >> addr;
         addresses.push_back(addr);
     }
-
+    cout << "finished reading all addresses" << endl;
     // output the selected addresses
     vector<string> selected_addr;
     for (auto itr = indexv.begin(); itr != indexv.end(); ++itr) {
