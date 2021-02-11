@@ -31,6 +31,9 @@ void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long
     index_pr.resize(vsize);
     ifs.read(reinterpret_cast<char*>(&index_pr.front()), vsize * sizeof(pair<unsigned int, double>));
     
+    if (number_of_lines > vsize) {
+        number_of_lines = vsize;
+    }
     ofstream ofs(target_fp, ios::binary);
     ofs.write(reinterpret_cast<const char*>(&data_size), 4);
     ofs.write(reinterpret_cast<const char*>(&number_of_lines), data_size);
