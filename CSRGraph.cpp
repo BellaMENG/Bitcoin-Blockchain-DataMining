@@ -98,6 +98,8 @@ void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_fi
     cout << "Read files time: " << duration_cast<milliseconds>(end - start).count() << " ms\n";
     cout << endl;
     
+    cout << "read in or calculate degrees: " << std::boolalpha << readin_degfile << endl;
+    
     //TODO: if the file already exists, read in the degree; otherwise, output to the file path
     degrees.resize(number_nodes);
     data_size = sizeof(unsigned int);
