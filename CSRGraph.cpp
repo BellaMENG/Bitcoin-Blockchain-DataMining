@@ -98,16 +98,23 @@ void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_fi
     cout << "Read files time: " << duration_cast<milliseconds>(end - start).count() << " ms\n";
     cout << endl;
     
-    // initialize the degree vector
+    //TODO: if the file already exists, read in the degree; otherwise, output to the file path
     degrees.resize(number_nodes);
-    for (int i = 0; i < number_nodes; ++i) {
-        degrees[i] = row_index[i+1] - row_index[i];
-    }
-    
-    cout << "Output to degree file" << endl;
     data_size = sizeof(unsigned int);
-    ofstream ofs(degree_file, ios::binary);
-    ofs.write(reinterpret_cast<const char *>(&degrees.front()), degrees.size() * data_size);
+    
+    if (FILE *file = fopen(degree_file, "r")) {
+        fclose(file);
+        ifstream ifs(degree_file, ios::binary);
+        ifs.read(reinterpret_cast<char*>(&degrees.front()), number_nodes * data_size);
+    } else {
+        // initialize the degree vector
+        for (int i = 0; i < number_nodes; ++i) {
+            degrees[i] = row_index[i+1] - row_index[i];
+        }
+        cout << "Output to degree file" << endl;
+        ofstream ofs(degree_file, ios::binary);
+        ofs.write(reinterpret_cast<const char *>(&degrees.front()), degrees.size() * data_size);
+    }
 }
 
 void CSRGraph::printInfo() {
@@ -310,6 +317,8 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
     
     unsigned int u, v, id;
     double weight;
+    
+    cout << "before read file: " << endl;
     while (getline(txedges, tmp_str)) {
         ss.clear();
         ss << tmp_str;
@@ -318,6 +327,7 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
         w[index] += weight;
     }
     
+    cout << "after read file: " << endl;
     for (auto itr = w.begin(); itr != w.end(); ++itr) {
         if (*itr == 0.0)
             continue;
