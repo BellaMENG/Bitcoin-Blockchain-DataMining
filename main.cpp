@@ -31,6 +31,7 @@ void test_csrgraph_class(const char* []);
 void test_btree_set();
 void test_vector();
 void test_flat_hash_set();
+void update_weights(const char* []);
 
 
 int main(int argc, const char * argv[]) {
@@ -39,8 +40,15 @@ int main(int argc, const char * argv[]) {
 //    test_vector();
 //    test_flat_hash_set();
 //    test_preProcess(argv);
-    test_csrgraph_class(argv);
+//    test_csrgraph_class(argv);
+    update_weights(argv);
     return 0;
+}
+
+void update_weights(const char* argv[]) {
+    CSRGraph* graph = new CSRGraph();
+    graph->readFromFile(argv[1], argv[2], argv[3]);
+    graph->updateWeights(argv[4], argv[5]);
 }
 
 void test_csrgraph_class(const char* argv[]) {
