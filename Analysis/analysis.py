@@ -6,7 +6,7 @@ def main():
     chain = blocksci.Blockchain("/home/zmengaa/blocksci.config")
 
     print("Number of addresses: ", chain.address_count(blocksci.address_type.pubkey))
-    print("Number of addresses: ", chain.address_count())
+#    print("Number of addresses: ", chain.address_count())
     
     filename = input("file path of the addresses file: ")
     addresses = []
