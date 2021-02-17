@@ -47,7 +47,9 @@ int main(int argc, const char * argv[]) {
 
 void update_weights(const char* argv[]) {
     CSRGraph* graph = new CSRGraph();
-    graph->readFromFile(argv[1], argv[2], argv[3]);
+    int readin;
+    sscanf(argv[6], "%d", &readin);
+    graph->readFromFile(argv[1], argv[2], readin, argv[3]);
     graph->updateWeights(argv[4], argv[5]);
 }
 

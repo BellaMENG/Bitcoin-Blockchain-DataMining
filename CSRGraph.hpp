@@ -35,7 +35,7 @@ class CSRGraph {
 public:
 //    CSRGraph(const char* ordered_edge_list, bool = true, const char* col_file = "col_index.dat", const char* row_file = "row_index.dat");
     
-    void readFromFile(const char* col_index_file, const char* row_index_file, const char* degree_file = "degree.dat");
+    void readFromFile(const char* col_index_file, const char* row_index_file, bool readin_degfile = true, const char* degree_file = "degree.dat");
     void printInfo();
     void printGraph();
     vector<ui> getNeighbors(ui);

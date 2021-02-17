@@ -65,7 +65,7 @@ CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const ch
 }
 */
  
-void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_file, const char* degree_file) {
+void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_file, bool readin_degfile, const char* degree_file) {
     // TODO: directly import col_index and row_index to two vectors
     auto start = high_resolution_clock::now();
     
@@ -102,9 +102,9 @@ void CSRGraph::readFromFile(const char* col_index_file, const char* row_index_fi
     degrees.resize(number_nodes);
     data_size = sizeof(unsigned int);
     
-    if (FILE *file = fopen(degree_file, "r")) {
-        fclose(file);
+    if (readin_degfile) {
         ifstream ifs(degree_file, ios::binary);
+        cout << "read in degrees: " << endl;
         ifs.read(reinterpret_cast<char*>(&degrees.front()), number_nodes * data_size);
     } else {
         // initialize the degree vector
