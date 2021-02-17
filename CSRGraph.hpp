@@ -30,6 +30,7 @@ class CSRGraph {
     // degree vector, stores the outgoing edges of each node
     vector<ui> degrees;
     vector<double> pr_;
+    vector<double> weights;
     
 public:
 //    CSRGraph(const char* ordered_edge_list, bool = true, const char* col_file = "col_index.dat", const char* row_file = "row_index.dat");
@@ -52,6 +53,8 @@ public:
     void printPageRank();
     void setPr(vector<double> ranks) {pr_ = ranks;}
     vector<double> getPr() {return pr_;}
+    
+    void updateWeights(const char*, const char*);
 };
 
 

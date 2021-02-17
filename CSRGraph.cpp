@@ -14,6 +14,7 @@
 #include <list>
 
 using namespace chrono;
+using namespace std;
 
 /*
 CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const char* target_col_file, const char* target_row_file) {
@@ -297,4 +298,39 @@ void CSRGraph::printPageRank() {
     for (auto itr = pr_.begin(); itr != pr_.end(); ++itr) {
         cout << i++ << ": " << *itr << endl;
     }
+}
+
+void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) {
+    string tmp_str;
+    stringstream ss;
+    ifstream txedges(txedge_file);
+    
+    vector<double> w;
+    w.resize(number_nodes * number_nodes);
+    
+    unsigned int u, v, id;
+    double weight;
+    while (getline(txedges, tmp_str)) {
+        ss.clear();
+        ss << tmp_str;
+        ss >> id >> u >> v >> weight;
+        unsigned int index = u * number_nodes + v;
+        w[index] += weight;
+    }
+    
+    for (auto itr = w.begin(); itr != w.end(); ++itr) {
+        if (*itr == 0.0)
+            continue;
+        weights.push_back(*itr);
+    }
+    cout << "size of the weights vector: " << weights.size() << endl;
+    cout << "number of edges: " << number_edges << endl;
+    
+    int data_size = sizeof(double);
+    unsigned long weights_size = weights.size();
+    
+    ofstream ofs(weights_file, ios::binary);
+    ofs.write(reinterpret_cast<const char*>(&data_size), 4);
+    ofs.write(reinterpret_cast<const char*>(&weights_size), sizeof(unsigned long));
+    ofs.write(reinterpret_cast<const char*>(&weights.front()), weights.size() * data_size);
 }
