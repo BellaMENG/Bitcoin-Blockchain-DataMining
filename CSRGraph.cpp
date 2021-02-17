@@ -317,7 +317,8 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
     vector<double> w;
     w.resize(number_nodes * number_nodes);
     
-    unsigned int u, v, id;
+    unsigned int id;
+    int u, v;
     double weight;
     
     cout << "before read file: " << endl;
