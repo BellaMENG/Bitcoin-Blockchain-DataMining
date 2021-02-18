@@ -43,11 +43,14 @@ def get_balances_n_txes(chain, addresses, balance_file, tx_file):
 def main():
 #    blocksci_core = input("Get the path of the core data files: ")
     chain = blocksci.Blockchain("/home/zmengaa/blocksci508241.config")
-
+    
     print("Number of addresses: ", chain.address_count(blocksci.address_type.pubkey))
 #    print("Number of addresses: ", chain.address_count())
+    # /home/zmengaa/data500k/txedges/datasets/selected_addresses.dat
     
-    filename = input("file path of the addresses file: ")
+    dataset_folder = "/home/zmengaa/data500k/txedges/datasets/"
+    filename = input("file name of the addresses file:")
+    filename = dataset_folder + filename
     addresses = []
     with open(filename) as f:
         addresses = [line.rstrip() for line in f]
@@ -55,6 +58,8 @@ def main():
     
     balance_file = input("file path of balance file: ")
     tx_file = input("file path of tx number file: ")
+    balance_file = dataset_folder + balance_file
+    tx_file = dataset_folder + tx_file
     get_balances_n_txes(chain, addresses, balance_file, tx_file)
     
     
