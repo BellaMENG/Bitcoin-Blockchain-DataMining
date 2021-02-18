@@ -13,8 +13,11 @@
 #include <chrono>
 #include <list>
 
+#include "parallel_hashmap/phmap.h"
+
 using namespace chrono;
 using namespace std;
+using phmap::flat_hash_map;
 
 /*
 CSRGraph::CSRGraph(const char* ordered_edge_list, bool convertEdgeList, const char* target_col_file, const char* target_row_file) {
@@ -314,33 +317,48 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
     stringstream ss;
     ifstream txedges(txedge_file);
     
-    vector<double> w;
-    w.resize(number_nodes * number_nodes);
-    cout << "size of w: " << w.size() << endl;
+    // okay we cannot flatten this. Because the size of the matrix is too big
+    
+//    w.resize(number_edges);
+    // TODO: Calculate it by CSR representation directly
+    
     unsigned int id;
     int u, v;
     double weight;
     
+    flat_hash_map<unsigned int, double> w;
+    vector<unsigned int> indexs;
     cout << "before read file: " << endl;
     while (getline(txedges, tmp_str)) {
         ss.clear();
         ss << tmp_str;
         ss >> id >> u >> v >> weight;
         unsigned int index = u * number_nodes + v;
-        w[index] += weight;
+        if (!w.insert(pair<unsigned int, double>(index, weight)).second) {
+            w[index] += weight;
+        } else {
+            indexs.push_back(index);
+        }
     }
     
     cout << "after read file: " << endl;
-    for (auto itr = w.begin(); itr != w.end(); ++itr) {
-        if (*itr == 0.0)
-            continue;
-        weights.push_back(*itr);
+    // sort the indexes:
+    
+    cout << "start time elapse: " << endl;
+    auto start = high_resolution_clock::now();
+    
+    sort(indexs.begin(), indexs.end());
+    for (auto itr = indexs.begin(); itr != indexs.end(); ++itr) {
+        weights.push_back(w[*itr]);
     }
+    
     cout << "size of the weights vector: " << weights.size() << endl;
     cout << "number of edges: " << number_edges << endl;
     
     int data_size = sizeof(double);
     unsigned long weights_size = weights.size();
+    auto end = high_resolution_clock::now();
+    cout << "Time elapse: " << (end - start).count() << " s\n";
     
     ofstream ofs(weights_file, ios::binary);
     ofs.write(reinterpret_cast<const char*>(&data_size), 4);
