@@ -28,6 +28,7 @@ int main(int argc, const char* argv[]) {
 void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long number_of_lines, bool with_pr, bool save_as_bin) {
     ifstream ifs(pr_fp, ios::binary);
     
+    auto start = high_resolution_clock::now();
     int data_size;
     unsigned long vsize;
     vector<pair<unsigned int, double>> index_pr;
@@ -44,7 +45,7 @@ void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long
     ofs.write(reinterpret_cast<const char*>(&data_size), 4);
     ofs.write(reinterpret_cast<const char*>(&number_of_lines), data_size);
     
-    cout << "With pagerank numbers? " << with_pr << endl;
+    cout << "With pagerank numbers? " << std::boolalpha << with_pr << endl;
     
     if (with_pr) {
         ofs.write(reinterpret_cast<const char*>(&index_pr.front()), number_of_lines * sizeof(pair<unsigned int, double>));
@@ -56,4 +57,6 @@ void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long
         }
         ofs.write(reinterpret_cast<const char*>(&index_wo_pr.front()), number_of_lines * sizeof(unsigned int));
     }
+    auto end = high_resolution_clock::now();
+    cout << "Time elapse: " << (end - start).count() << " s\n";
 }
