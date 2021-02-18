@@ -12,10 +12,21 @@
 #include <vector>
 
 using namespace std;
+
 void get_list_of_indices(const char*, const char*, unsigned long = 1000, bool = false, bool = true);
 
+void Usage() {
+    cout << "Usage: eg. ./getIndex ../../datasets/sorted_pr.dat ../../datasets/largest_1k.dat 1000" << endl;
+}
+
 int main(int argc, const char* argv[]) {
-    get_list_of_indices(argv[1], argv[2]);
+    if (argc < 2) {
+        Usage();
+    } else {
+        unsigned int number_of_lines;
+        sscanf(argv[3], "%u", &number_of_lines);
+        get_list_of_indices(argv[1], argv[2], number_of_lines);
+    }
     return 0;
 }
 

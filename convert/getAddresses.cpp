@@ -15,10 +15,18 @@
 
 using namespace std;
 
+void Usage() {
+    cout << "Usage: ./getAddr ../../datasets/largest_1k.dat ../../../addresses.dat ../../datasets/selected_addresses.dat" << endl;
+}
+
 void get_addresses(const char*, const char*, const char*, bool = false);
 
 int main(int argc, const char* argv[]) {
-    get_addresses(argv[1], argv[2], argv[3]);
+    if (argc < 3) {
+        Usage();
+    } else {
+        get_addresses(argv[1], argv[2], argv[3]);
+    }
     return 0;
 }
 
