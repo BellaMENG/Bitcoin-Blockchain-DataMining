@@ -6,10 +6,7 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-using namespace std;
+#include "util.h"
 
 void Usage();
 void extractEdgeList(int, const char* []);

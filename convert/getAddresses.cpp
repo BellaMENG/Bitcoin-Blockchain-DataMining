@@ -6,14 +6,14 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
+//#include <stdio.h>
+//#include <iostream>
+//#include <fstream>
+//#include <sstream>
+//#include <string>
+//#include <vector>
 
-using namespace std;
+#include "util.h"
 
 void Usage() {
     cout << "Usage: ./getAddr ../../datasets/largest_1k.dat ../../../addresses.dat ../../datasets/selected_addresses.dat" << endl;

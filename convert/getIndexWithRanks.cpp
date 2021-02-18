@@ -6,12 +6,7 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <vector>
-
-using namespace std;
+#include "util.h"
 
 void get_list_of_indices(const char*, const char*, unsigned long = 1000, bool = false, bool = true);
 

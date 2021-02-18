@@ -6,16 +6,7 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <chrono>
-#include <sstream>
-#include <iomanip>
-#include <string>
-#include <vector>
-
-#include "../parallel_hashmap/phmap.h"
+#include "util.h"
 
 using namespace std;
 using phmap::flat_hash_set;

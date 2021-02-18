@@ -6,15 +6,7 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <chrono>
-#include <algorithm>
-
-using namespace std;
-using namespace chrono;
+#include "util.h"
 
 void sortPR(const char*, const char*, unsigned long = 370269747, bool = false);
 
