@@ -42,7 +42,7 @@ def get_balances_n_txes(chain, addresses, balance_file, tx_file):
 
 def main():
 #    blocksci_core = input("Get the path of the core data files: ")
-    chain = blocksci.Blockchain("/home/zmengaa/blocksci.config")
+    chain = blocksci.Blockchain("/home/zmengaa/blocksci508241.config")
 
     print("Number of addresses: ", chain.address_count(blocksci.address_type.pubkey))
 #    print("Number of addresses: ", chain.address_count())
