@@ -28,6 +28,7 @@ int main(int argc, const char* argv[]) {
 void get_list_of_indices(const char* pr_fp, const char* target_fp, unsigned long number_of_lines, bool with_pr, bool save_as_bin) {
     ifstream ifs(pr_fp, ios::binary);
     
+    cout << "Start time elapse: " << endl;
     auto start = high_resolution_clock::now();
     int data_size;
     unsigned long vsize;

@@ -6,13 +6,6 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
-//#include <stdio.h>
-//#include <iostream>
-//#include <fstream>
-//#include <sstream>
-//#include <string>
-//#include <vector>
-
 #include "util.h"
 
 void Usage() {
@@ -34,6 +27,9 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
     // read in all the index
     cout << "start to read in selected index" << endl;
     
+    cout << "Start time elapse: " << endl;
+    auto start = high_resolution_clock::now();
+
     int data_size;
     unsigned long vsize;
     vector<unsigned int> indexv;
@@ -75,4 +71,6 @@ void get_addresses(const char* index_fp, const char* addresses_fp, const char* o
             ofs << *itr << "\n";
         }
     }
+    auto end = high_resolution_clock::now();
+    cout << "Time elapse: " << (end - start).count() << " s\n";
 }
