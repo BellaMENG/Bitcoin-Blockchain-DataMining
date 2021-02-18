@@ -328,6 +328,10 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
     
     flat_hash_map<unsigned int, double> w;
     vector<unsigned int> indexs;
+
+    cout << "start time elapse: " << endl;
+    auto start = high_resolution_clock::now();
+    
     cout << "before read file: " << endl;
     while (getline(txedges, tmp_str)) {
         ss.clear();
@@ -343,9 +347,6 @@ void CSRGraph::updateWeights(const char* txedge_file, const char* weights_file) 
     
     cout << "after read file: " << endl;
     // sort the indexes:
-    
-    cout << "start time elapse: " << endl;
-    auto start = high_resolution_clock::now();
     
     sort(indexs.begin(), indexs.end());
     for (auto itr = indexs.begin(); itr != indexs.end(); ++itr) {
