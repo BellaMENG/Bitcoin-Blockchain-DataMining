@@ -16,6 +16,7 @@ def get_tags(chain, addresses, tags_filename, output_filename):
     for entry in data['tags']:
         addr = entry['address']
         label = entry['category']
+        print(addr, label)
         labels[addr] = label
     
     result = []
