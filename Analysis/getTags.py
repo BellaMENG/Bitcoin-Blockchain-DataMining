@@ -15,8 +15,11 @@ def get_tags(chain, addresses, tags_filename, output_filename):
     labels = {}
     for entry in data['tags']:
         addr = entry['address']
-        label = entry['category']
-        print(addr, label)
+        label = ""
+        try:
+            label = entry['category']
+        except:
+            label = entry['abuse']
         labels[addr] = label
     
     result = []
