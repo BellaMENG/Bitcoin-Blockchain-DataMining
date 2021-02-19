@@ -29,7 +29,7 @@ def get_tags(chain, addresses, tags_filename, output_filename):
         else:
             result.append([addr, ""])
     
-    with open(output_filename, "r") as f:
+    with open(output_filename, "w+") as f:
         f_writer = csv.writer(f, delimiter=',')
         for entry in result:
             f_writer.writerow(entry)
