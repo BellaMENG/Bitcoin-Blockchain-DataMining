@@ -5,13 +5,13 @@ dataset_fp = "/home/zmengaa/data500k/txedges/datasets/"
 
 def create_clusters():
     print("start to create clusters:")
-    cm = blocksci.cluster.ClusterManager.create_clustering("blocksci_clusters", chain)
+    cm = blocksci.cluster.ClusterManager.create_clustering(dataset_fp + "blocksci_clusters", chain)
     print("finish creating clusters!")
     return cm
 
 
 def load_clusters():
-    cm = blocksci.cluster.ClusterManager(dataset_fp + dataset_fp + "blocksci_clusters", chain)
+    cm = blocksci.cluster.ClusterManager(dataset_fp + "blocksci_clusters", chain)
     return cm
 
 
