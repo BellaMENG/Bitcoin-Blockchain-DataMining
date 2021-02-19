@@ -33,7 +33,7 @@ def get_tags(chain, addresses, tags_filename, output_filename):
     
     print("Number of addresses with label:", with_label)
     with open(output_filename, "w+") as f:
-        f_writer = csv.writer(f, delimiter=',')
+        f_writer = csv.writer(f, delimiter=' ')
         for entry in result:
             f_writer.writerow(entry)
     
