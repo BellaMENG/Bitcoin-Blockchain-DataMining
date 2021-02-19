@@ -23,12 +23,15 @@ def get_tags(chain, addresses, tags_filename, output_filename):
         labels[addr] = label
     
     result = []
+    with_label = 0
     for addr in addresses:
         if addr in labels:
             result.append([addr, labels[addr]])
+            with_label += 1
         else:
             result.append([addr, ""])
     
+    print("Number of addresses with label:", with_label)
     with open(output_filename, "w+") as f:
         f_writer = csv.writer(f, delimiter=',')
         for entry in result:
