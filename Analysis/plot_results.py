@@ -1,7 +1,7 @@
 from util import get_addrs
 import matplotlib.pyplot as plt
 
-dataset_path = "/home/zmengaa/data500k/txedges/datasets/analysis_results"
+dataset_path = "/home/zmengaa/data500k/txedges/datasets/analysis_results/"
 
 def plot_result(filename, output_fn):
     data = []
