@@ -23,7 +23,7 @@ def get_txes(chain, addresses, tx_file):
             f.write("%s\n" % tx)
             
             
-def get_in_out_txes(chain, addresses, intx_file, outtx_file):
+def get_in_out_txes(chain, addresses):
     intx_file = input("file path of output file to number of in_txes: ")
     outtx_file = input("file path of output file to number of out_txes: ")
 
@@ -80,6 +80,7 @@ def main():
         addresses = [line.rstrip() for line in f]
     print("number of addresses:", len(addresses))
     
+    get_in_out_txes(chain, addresses)
 #    get_balances_n_txes(chain, addresses)
     
     
