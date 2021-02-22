@@ -33,8 +33,8 @@ def get_in_out_txes(chain, addresses):
     out_txes = []
     for address in addresses:
         addr = chain.address_from_string(address)
-        in_txes.append(len(addr.in_txes.to_list()))
-        out_txes.append(len(addr.out_txes.to_list()))
+        in_txes.append(len(addr.input_txes.to_list()))
+        out_txes.append(len(addr.output_txes.to_list()))
     
     with open(intx_file, 'w') as f:
         for tx in in_txes:
