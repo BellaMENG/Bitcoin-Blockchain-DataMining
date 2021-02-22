@@ -20,6 +20,7 @@ def load_clusters():
 
 def getClusterIds(output_fn):
     cm = load_clusters()
+    print("Number of addresses:", chain.address_count(blocksci.address_type.pubkey))
     print("Number of clusters:", len(cm.clusters()))
     addr_fn = input("load the addresses, filename: ")
     addr_fn = dataset_fp + addr_fn
