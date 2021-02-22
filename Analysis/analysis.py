@@ -1,5 +1,5 @@
 import blocksci
-
+dataset_folder = "/home/zmengaa/data500k/txedges/datasets/"
 
 def get_balances(chain, addresses, balance_file):
     balances = []
@@ -22,8 +22,35 @@ def get_txes(chain, addresses, tx_file):
         for tx in txes:
             f.write("%s\n" % tx)
             
+            
+def get_in_out_txes(chain, addresses, intx_file, outtx_file):
+    intx_file = input("file path of output file to number of in_txes: ")
+    outtx_file = input("file path of output file to number of out_txes: ")
 
-def get_balances_n_txes(chain, addresses, balance_file, tx_file):
+    intx_file = dataset_folder + intx_file
+    outtx_file = dataset_folder + outtx_file
+    in_txes = []
+    out_txes = []
+    for address in addresses:
+        addr = chain.address_from_string(address)
+        in_txes.append(len(addr.in_txes.to_list()))
+        out_txes.append(len(addr.out_txes.to_list()))
+    
+    with open(intx_file, 'w') as f:
+        for tx in in_txes:
+            f.write("%s\n" % tx)
+    
+    with open(outtx_file, 'w') as f:
+        for tx in out_txes:
+            f.write("%s\n" % tx)
+            
+
+def get_balances_n_txes(chain, addresses):
+    balance_file = input("file path of balance file: ")
+    tx_file = input("file path of tx number file: ")
+    balance_file = dataset_folder + balance_file
+    tx_file = dataset_folder + tx_file
+    
     balances = []
     txes = []
     for address in addresses:
@@ -45,10 +72,7 @@ def main():
     chain = blocksci.Blockchain("/home/zmengaa/blocksci508241.config")
     
     print("Number of addresses: ", chain.address_count(blocksci.address_type.pubkey))
-#    print("Number of addresses: ", chain.address_count())
-    # /home/zmengaa/data500k/txedges/datasets/selected_addresses.dat
     
-    dataset_folder = "/home/zmengaa/data500k/txedges/datasets/"
     filename = input("file name of the addresses file:")
     filename = dataset_folder + filename
     addresses = []
@@ -56,11 +80,8 @@ def main():
         addresses = [line.rstrip() for line in f]
     print("number of addresses:", len(addresses))
     
-    balance_file = input("file path of balance file: ")
-    tx_file = input("file path of tx number file: ")
-    balance_file = dataset_folder + balance_file
-    tx_file = dataset_folder + tx_file
-    get_balances_n_txes(chain, addresses, balance_file, tx_file)
+#    get_balances_n_txes(chain, addresses)
+    
     
     
 if __name__ == "__main__":
