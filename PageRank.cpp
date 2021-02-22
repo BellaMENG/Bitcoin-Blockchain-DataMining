@@ -20,8 +20,6 @@ void PageRank::initGraph(const char* col_fp, const char* row_fp, const char* deg
     
     graph_->readFromFile(col_fp, row_fp, degree_fp);
     graph_t_->readFromFile(col_fp_t, row_fp_t, degree_fp_t);
-//    CSRGraph g(col_fp, row_fp, degree_fp);
-//    CSRGraph g_t(col_fp_t, row_fp_t, degree_fp_t);
 
     cout << "finished initialize graphs" << endl;
 }
@@ -50,10 +48,7 @@ void PageRank::updateRanks(ui iterations, double convergence, double alpha) {
                 dangling_pr += cpr;
             }
         }
-//        if (num_iterations < 10) {
-//            cout << sum_pr << " " << dangling_pr << endl;
-//        }
-        // normalize the pr vector
+
         if (num_iterations == 0) {
             old_pr = ranks;
         } else {
@@ -74,26 +69,12 @@ void PageRank::updateRanks(ui iterations, double convergence, double alpha) {
                 double h_v = (graph_->getDegree(*itr)) ? (1.0 / graph_->getDegree(*itr)) : 0.0;
                 h += h_v * old_pr[*itr];
             }
-//            if (num_iterations < 10)
-//                cout << h << endl;
             h *= alpha;
             ranks[i] = h + one_Av + one_Iv;
             diff += fabs(ranks[i] - old_pr[i]);
         }
         
         num_iterations++;
-//        if (num_iterations < 10) {
-//            for (auto itr = ranks.begin(); itr != ranks.end(); ++itr) {
-//                cout << *itr << " ";
-//            }
-//            cout << endl;
-//            cout << endl;
-//            for (auto itr = old_pr.begin(); itr != old_pr.end(); ++itr) {
-//                cout << *itr << " ";
-//            }
-//            cout << endl;
-//            cout << endl;
-//        }
     }
     graph_->setPr(ranks);
 }

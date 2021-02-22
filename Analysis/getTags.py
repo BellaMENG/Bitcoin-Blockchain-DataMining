@@ -41,7 +41,7 @@ def get_tags(chain, addresses, tags_filename, output_filename):
     
 
 def label_dist(labels):
-    label_count = {}
+    label_count = 2{}
     for entry in labels:
         addr, label = entry
         if label in label_count:
