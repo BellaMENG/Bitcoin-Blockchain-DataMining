@@ -2,6 +2,7 @@ import blocksci
 import yaml
 import os
 import csv
+import json
 from util import get_addrs
 
 dataset_path = "/home/zmengaa/data500k/txedges/datasets/"
@@ -36,7 +37,23 @@ def get_tags(chain, addresses, tags_filename, output_filename):
         f_writer = csv.writer(f, delimiter=' ')
         for entry in result:
             f_writer.writerow(entry)
+
+
+def label_dist(labels):
+    label_count = {}
+    for entry in labels:
+        addr, label = entry
+        if label in label_count:
+            label_count[label] += 1
+        else:
+            label_count[label] = 1
     
+    fn = input("name of label distribution output file: ")
+    fn = dataset_path + fn
+    with open(fn, "w+") as f:
+        json.dump(label_count, f)
+            
+
 
 def main():
     
