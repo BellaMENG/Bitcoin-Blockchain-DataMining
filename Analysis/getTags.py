@@ -37,7 +37,8 @@ def get_tags(chain, addresses, tags_filename, output_filename):
         f_writer = csv.writer(f, delimiter=' ')
         for entry in result:
             f_writer.writerow(entry)
-
+    label_dist(result)
+    
 
 def label_dist(labels):
     label_count = {}
