@@ -12,13 +12,12 @@ def plot_result(filename, output_fn):
     
     fig, ax = plt.subplots()
     ax.plot(list(range(num_of_entris)), data, label='original')
-    ax.plot(list(range(num_of_entris)), math.log(data, 2), label='log')
-    plt.savefig(output_fn)
+    plt.yscale('log')
     
     ax.set_xlabel('addresses by the rank given by pagerank')
     ax.set_ylabel('number of transactions')
     ax.set_title("Number of transactions for each address")
-    
+    plt.savefig(output_fn)
 
 def main():
     fn = input("data file name: ")
