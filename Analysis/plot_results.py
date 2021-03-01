@@ -12,7 +12,7 @@ def plot_result(filename, output_fn):
     
     fig, ax = plt.subplots()
     ax.plot(list(range(num_of_entris)), data, label='original')
-    plt.yscale('log')
+    plt.yscale('log', basey=2)
     
     ax.set_xlabel('addresses by the rank given by pagerank')
     ax.set_ylabel('number of transactions')
