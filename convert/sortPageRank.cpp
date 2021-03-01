@@ -43,7 +43,7 @@ void sortPR(const char* pr_fp, const char* sortedpr_fp, unsigned long pr_size, b
         return left.second > right.second;
     });
     auto end = high_resolution_clock::now();
-    cout << "Sorting time elapsed: " << duration<double>(end-start).count() << "s\n";
+    cout << "Sorting time elapsed: " << (end-start).count() << "s\n";
     
     // output the result to files first
     data_size = sizeof(unsigned long);

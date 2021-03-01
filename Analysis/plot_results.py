@@ -13,6 +13,8 @@ def plot_result(filename, output_fn):
     ax.plot(list(range(num_of_entris)), data)
     plt.savefig(output_fn)
     
+    ax.set_yscale('log')
+    plt.savefig("log.png")
 
 def main():
     fn = input("data file name: ")
