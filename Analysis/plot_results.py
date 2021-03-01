@@ -1,5 +1,6 @@
 from util import get_addrs
 import matplotlib.pyplot as plt
+import math
 
 dataset_path = "/home/zmengaa/data500k/txedges/datasets/analysis_results/"
 
@@ -10,11 +11,14 @@ def plot_result(filename, output_fn):
     num_of_entris = len(data)
     
     fig, ax = plt.subplots()
-    ax.plot(list(range(num_of_entris)), data)
+    ax.plot(list(range(num_of_entris)), data, label='original')
+    ax.plot(list(range(num_of_entris)), math.log(data, 2), label='log')
     plt.savefig(output_fn)
     
-    ax.set_yscale('log')
-    plt.savefig("log.png")
+    ax.set_xlabel('addresses by the rank given by pagerank')
+    ax.set_ylabel('number of transactions')
+    ax.set_title("Number of transactions for each address")
+    
 
 def main():
     fn = input("data file name: ")
