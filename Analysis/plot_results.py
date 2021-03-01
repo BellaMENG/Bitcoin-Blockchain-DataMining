@@ -11,8 +11,8 @@ def plot_result(filename, output_fn):
     num_of_entris = len(data)
     
     fig, ax = plt.subplots()
-    ax.set_yscale('log', basey=2)
-    
+#    ax.set_yscale('log', basey=2)
+
     ax.set_xlabel('addresses by the rank given by pagerank')
     ax.set_ylabel('number of transactions')
     ax.set_title("Number of transactions for each address")
