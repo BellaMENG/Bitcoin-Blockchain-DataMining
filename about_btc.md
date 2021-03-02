@@ -2,6 +2,9 @@
 #### What is a Satoshi?
 It is equivalent to 0.00000001 BTC and is currently the smallest transaction unit of Bitcoin.
 
+#### Bitcoin protocols and clients
+One of the most original ones is Bitcoin Core. The implementation of Bitcoin Core follows the Bitcoin protocol.
+
 #### What are the nodes in the Bitcoin P2P network?
 According to my understanding, there are two kinds of rows: miners and participants who just want to make transactions. For miners, they listen to and collect broadcasts of transactions, so they can calculate (actually try out) the nonce. For people who just want to make transactions, they just listen to and collect the next computed chain. All the nodes are supposed to keep their own copy of the ledger.
 
@@ -16,6 +19,10 @@ According to my understanding, there are two kinds of rows: miners and participa
 #### Do mining award and transaction fees go to the same address who found the nonce first?
 
 #### How does the protocol of trying nonces and broadcasting results look like? Do people implement their own versions?
+
+#### Merkle Trees and its application in Bitcoin protocol?
+
+#### Scripting in Bitcoin protocol?
 
 
 ## External information
