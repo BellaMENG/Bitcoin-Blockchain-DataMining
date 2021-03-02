@@ -27,3 +27,6 @@ According to my understanding, there are two kinds of rows: miners and participa
 
 ## External information
 #### With the concept of mining pool, exactly which address does the mining award and all the transaction fees go to?
+
+#### Mining pools:
+- There are a lot of miner reward systems, such as PPS, PROP, PPLNS, PPLNT and so on.
