@@ -1,4 +1,4 @@
-## Purely Bitcoin
+## Purely Bitcoin and Bitcoin Blockchain
 #### What is a Satoshi?
 It is equivalent to 0.00000001 BTC and is currently the smallest transaction unit of Bitcoin.
 
@@ -25,6 +25,8 @@ According to my understanding, there are two kinds of rows: miners and participa
 #### Merkle Trees and its application in Bitcoin protocol?
 
 #### Scripting in Bitcoin protocol?
+
+#### What is mempool and how does it work?
 
 
 ## External information
