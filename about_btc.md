@@ -8,6 +8,8 @@ One of the most original ones is Bitcoin Core. The implementation of Bitcoin Cor
 #### What are the nodes in the Bitcoin P2P network?
 According to my understanding, there are two kinds of rows: miners and participants who just want to make transactions. For miners, they listen to and collect broadcasts of transactions, so they can calculate (actually try out) the nonce. For people who just want to make transactions, they just listen to and collect the next computed chain. All the nodes are supposed to keep their own copy of the ledger.
 
+**Updated: Now it makes more sense to say that, miners are actually users that own and run ASIC machines. Nodes are the users participating in the transaction of Bitcoin. 
+
 #### What is the order of transactions appearing in blocks? Is it by timestamp of each transaction?
 
 #### What about the process of broadcasting? What is the delay and how do information spread in this P2P network?
@@ -30,3 +32,4 @@ According to my understanding, there are two kinds of rows: miners and participa
 
 #### Mining pools:
 - There are a lot of miner reward systems, such as PPS, PROP, PPLNS, PPLNT and so on.
+- Now it makes more sense to say that each pool has its own address and the participants that contributed computing power will be the payees of mining pool according to the rewarding system a certain pool is following.
