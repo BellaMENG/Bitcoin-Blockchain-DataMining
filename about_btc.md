@@ -6,11 +6,12 @@ It is equivalent to 0.00000001 BTC and is currently the smallest transaction uni
 One of the most original ones is Bitcoin Core. The implementation of Bitcoin Core follows the Bitcoin protocol.
 
 #### What are the nodes in the Bitcoin P2P network?
-According to my understanding, there are two kinds of rows: miners and participants who just want to make transactions. For miners, they listen to and collect broadcasts of transactions, so they can calculate (actually try out) the nonce. For people who just want to make transactions, they just listen to and collect the next computed chain. All the nodes are supposed to keep their own copy of the ledger.
+According to my understanding, there are two kinds of roles: miners and participants who just want to make transactions. For miners, they listen to and collect broadcasts of transactions, so they can calculate (actually try out) the nonce. For people who just want to make transactions, they just listen to and collect the next computed chain. All the nodes are supposed to keep their own copy of the ledger.
 
-**Updated: Now it makes more sense to say that, miners are actually users that own and run ASIC machines. Nodes are the users participating in the transaction of Bitcoin. 
+**Updated: Now it makes more sense to say that, miners are actually users that own and run ASIC machines. Nodes are the users participating in the transaction of Bitcoin. According to my understanding, it is the case that a lot of miners are calculating the hashes under one certain address. They have their own external protocols to split the reward.
 
 #### What is the order of transactions appearing in blocks? Is it by timestamp of each transaction?
+Now according to my understanding, different groups of miners may be working on a set of different transactions they wish to apend to the blockchain.
 
 #### What about the process of broadcasting? What is the delay and how do information spread in this P2P network?
 
@@ -19,6 +20,7 @@ According to my understanding, there are two kinds of rows: miners and participa
 #### How do miners choose transactions to include? How do they refuse to include transactions with not enough transaction fee?
 
 #### Do mining award and transaction fees go to the same address who found the nonce first?
+Yes. Both mining award, which is a fixed number given the height of the block, and all transaction fees are given to the miner or group of miners who found the valid nonce.
 
 #### How does the protocol of trying nonces and broadcasting results look like? Do people implement their own versions?
 
