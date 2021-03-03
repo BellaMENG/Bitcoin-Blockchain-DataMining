@@ -41,6 +41,8 @@ Yes. Both mining award, which is a fixed number given the height of the block, a
 
 #### What is mempool and how does it work?
 
+#### How does Bitcoin protocol handle possible partition of the Bitcoin Network?
+According to the paper "Information propagation in the Bitcoin network", the partitions are not explicitly detected. A sudden drop of the rate of finding a new block might indicate such behavior.
 
 ## External information
 #### With the concept of mining pool, exactly which address does the mining award and all the transaction fees go to?
