@@ -31,7 +31,7 @@ Yes. Both mining award, which is a fixed number given the height of the block, a
 
 #### What are the underlying hash functions? Which procedures adopted which hash functions?
 
-#### Why is quantum computing not a potential threat for Bitcoin?
+#### Why is quantum computing not a potential threat for Bitcoin in terms of mining and the security of ownership of bitcoins, i.e, a threat to ECDSA?
 
 #### How does the protocol of trying nonces and broadcasting results look like? Do people implement their own versions?
 
