@@ -21,7 +21,7 @@ According to a video by computerphile, there are three kinds of systems. The fir
 As for this system of bitcoin, the broadcasting of transactions and blocks is always sent to the neighbors of the node. Refer to "Information Propagation in the Bitcoin Network" for more details.
 
 #### How do miners choose transactions to include? How do they refuse to include transactions with not enough transaction fee?
-Miners are free to choose which transactions to include. They usually choose transactions with higher fees to maximize the rewards.
+Miners are free to choose which transactions to include. They usually choose transactions with higher fees to maximize the rewards. One of the posts say that Bitcoin do not relay transactions that do not have transaction fees. So these transactions will not even reach miner nodes.
 
 #### Follow up question: what are the implementations of such process of choosing transactions?
 
