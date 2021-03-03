@@ -24,6 +24,7 @@ As for this system of bitcoin, the broadcasting of transactions and blocks is al
 Miners are free to choose which transactions to include. They usually choose transactions with higher fees to maximize the rewards. One of the posts say that Bitcoin do not relay transactions that do not have transaction fees. So these transactions will not even reach miner nodes.
 
 #### Follow up question: what are the implementations of such process of choosing transactions?
+Check this wiki page: [feerates](https://en.bitcoin.it/wiki/Miner_fees#Feerates) for more information.
 
 #### Do mining award and transaction fees go to the same address who found the nonce first?
 Yes. Both mining award, which is a fixed number given the height of the block, and all transaction fees are given to the miner or group of miners who found the valid nonce.
