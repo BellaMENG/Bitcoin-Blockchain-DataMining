@@ -29,6 +29,10 @@ Check this wiki page: [feerates](https://en.bitcoin.it/wiki/Miner_fees#Feerates)
 #### Do mining award and transaction fees go to the same address who found the nonce first?
 Yes. Both mining award, which is a fixed number given the height of the block, and all transaction fees are given to the miner or group of miners who found the valid nonce.
 
+#### What are the underlying hash functions? Which procedures adopted which hash functions?
+
+#### Why is quantum computing not a potential threat for Bitcoin?
+
 #### How does the protocol of trying nonces and broadcasting results look like? Do people implement their own versions?
 
 #### Merkle Trees and its application in Bitcoin protocol?
