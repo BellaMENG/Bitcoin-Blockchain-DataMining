@@ -16,8 +16,14 @@ Now according to my understanding, different groups of miners may be working on 
 #### What about the process of broadcasting? What is the delay and how do information spread in this P2P network?
 
 #### As a decentralized system, how to make sure this whole process is synchronized?
+According to a video by computerphile, there are three kinds of systems. The first kind is centralized, where users request information from a central database. Then there is decentralized system, or P2P system, where fractions of information are stored in different peers in the network. Then there is the system Bitcoin is adopting. In this system, each peer/node has a complete copy of the information.
+
+As for this system of bitcoin, the broadcasting of transactions and blocks is always sent to the neighbors of the node. Refer to "Information Propagation in the Bitcoin Network" for more details.
 
 #### How do miners choose transactions to include? How do they refuse to include transactions with not enough transaction fee?
+Miners are free to choose which transactions to include. They usually choose transactions with higher fees to maximize the rewards.
+
+#### Follow up question: what are the implementations of such process of choosing transactions?
 
 #### Do mining award and transaction fees go to the same address who found the nonce first?
 Yes. Both mining award, which is a fixed number given the height of the block, and all transaction fees are given to the miner or group of miners who found the valid nonce.
