@@ -50,3 +50,32 @@ According to the paper "Information propagation in the Bitcoin network", the par
 #### Mining pools:
 - There are a lot of miner reward systems, such as PPS, PROP, PPLNS, PPLNT and so on.
 - Now it makes more sense to say that each pool has its own address and the participants that contributed computing power will be the payees of mining pool according to the rewarding system a certain pool is following.
+
+
+## Questions to answer:
+#### How does the PageRank work in the graph? How is it implemented?
+
+#### How does k-means work in the graph? How to evaluate k-means algorithm?
+
+#### What is clustering in Bitcoin graph? Bitcoin address clustering, address linking, and address association
+
+#### How to integrate the idea of Bitcoin pair?
+
+### About this paper:
+[A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
+
+#### How are the two heuristics defined formally?
+
+#### How did they detect and handle false positives?
+
+#### Can heuristic 2 identify all of the change addresses correctly? (e.g. Is there a lot of false negatives?)
+
+#### Can we use machine learning to learn irregular patterns in the graph? For example, if the same change address is used twice within a short time period?
+
+#### What is the history of Bitcoin gambling and what is the current situation?
+
+#### What's the current money laundering situation and what's the research work about it like?
+
+#### What's the theft situation?
+
+#### (Random) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
