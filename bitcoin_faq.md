@@ -79,3 +79,10 @@ According to the paper "Information propagation in the Bitcoin network", the par
 #### What's the theft situation?
 
 #### (Random) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
+
+### [A First Estimation of the Proportion of Cybercriminal Entities in the Bitcoin Ecosystem using Supervised Machine Learning](https://ieeexplore.ieee.org/abstract/document/8258365)
+
+#### Clustering methodologies:
+- Co-spend clustering: whenever two or more input addresses are used for one transaction
+- Intelligence-based clustering: where information and intelligence outside of the blockchain obtained when data partnership is used
+- Behavioural clustering: where clustering is done according to known patterns that are dictated by the wallet software or systems used
