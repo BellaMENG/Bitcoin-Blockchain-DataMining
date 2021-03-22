@@ -48,24 +48,30 @@ According to the paper "Information propagation in the Bitcoin network", the par
 
 ## Questions to answer:
 #### How does the PageRank work in the graph? How is it implemented?
+So the ramdom surfer starts from page with index 0. The initial value of the pageranks of each node is 0 except for node 0.
 #### How does k-means work in the graph? How to evaluate k-means algorithm?
+How to measure the similarity or distance for two addresses in the Bitcoin address graph? Maybe refer to the paper "Evaluation Bitcoin user privacy".
 #### What is clustering in Bitcoin graph? Bitcoin address clustering, address linking, and address association
 #### How to integrate the idea of Bitcoin pair?
 
 
 ### [A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
-
+Internet Measurement Conference 2013, cited by 1087\
+This paper properly defined the heuristics that are usually used for address linking. In addition, it also analysed false positives resulted from heuristic 2 (change address heuristic). The authors did case analyses on several illicit activities including Silk Road, defined several concepts such as peeling chain for money landering purpose. 
 #### How are the two heuristics defined formally?
+Refer to section 4.3
 #### How did they detect and handle false positives?
+Section 4.5
 #### Can heuristic 2 identify all of the change addresses correctly? (e.g. Is there a lot of false negatives?)
 #### Can we use machine learning to learn irregular patterns in the graph? For example, if the same change address is used twice within a short time period?
+(The followings are questions regarding the )
 #### What is the history of Bitcoin gambling and what is the current situation?
 #### What's the current money laundering situation and what's the research work about it like?
 #### What's the theft situation?
 #### (Random/irrelevant) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
 
 #### [A First Estimation of the Proportion of Cybercriminal Entities in the Bitcoin Ecosystem using Supervised Machine Learning](https://ieeexplore.ieee.org/abstract/document/8258365)
-Chainalysis is the data provider for this paper.\
+Chainalysis is the data provider for this paper.
 - By using the data provided by chainalysis, they try to evaluate different classifiers and classify the data to 13 categories. For each cluster of the data, transactions, addresses, counterparties and exposure are defined and available. According to their evaluation, the following classifiers: Random Forests, Extremely Randomised Forests, Bagging and Gradient Boosting show the highest cross-validation accuracy.
 - Different heuristics have been proposed for different categories of addresses. An alternative method is to use unsupervised learning clustering.
 - The reason this paper didn't apply unsupervised learning clustering algorithm like k-means is that they wanted to utilized the available dataset.
@@ -101,4 +107,4 @@ IEEE Infocom 2019
 
 #### [A GRAPH-BASED INVESTIGATION OF BITCOIN TRANSACTIONS](https://hal.inria.fr/hal-01449078/document)
 International Conference on Digital Forensics 2015\
-
+The authors described their algorithm for address linking in detail, by forming a tree structure.
