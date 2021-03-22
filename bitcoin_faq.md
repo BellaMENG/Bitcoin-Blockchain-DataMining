@@ -37,8 +37,6 @@ Yes. Both mining award, which is a fixed number given the height of the block, a
 #### What is mempool and how does it work?
 #### How does Bitcoin protocol handle possible partition of the Bitcoin Network?
 According to the paper "Information propagation in the Bitcoin network", the partitions are not explicitly detected. A sudden drop of the rate of finding a new block might indicate such behavior.
-
-## External information
 #### With the concept of mining pool, exactly which address does the mining award and all the transaction fees go to?
 
 #### Mining pools:
@@ -55,7 +53,7 @@ How to measure the similarity or distance for two addresses in the Bitcoin addre
 #### How to integrate the idea of Bitcoin pair?
 
 
-### [A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
+#### [A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
 Internet Measurement Conference 2013, cited by 1087\
 This paper properly defined the heuristics that are usually used for address linking. In addition, it also analysed false positives resulted from heuristic 2 (change address heuristic). The authors did case analyses on several illicit activities including Silk Road, defined several concepts such as peeling chain for money landering purpose. 
 #### How are the two heuristics defined formally?
