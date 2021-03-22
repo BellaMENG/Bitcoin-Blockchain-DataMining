@@ -1,4 +1,4 @@
-## Purely Bitcoin and Bitcoin Blockchain
+## Questions about Bitcoin and Bitcoin Blockchain
 #### What is a Satoshi?
 It is equivalent to 0.00000001 BTC and is currently the smallest transaction unit of Bitcoin.
 
@@ -65,14 +65,40 @@ According to the paper "Information propagation in the Bitcoin network", the par
 #### (Random/irrelevant) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
 
 #### [A First Estimation of the Proportion of Cybercriminal Entities in the Bitcoin Ecosystem using Supervised Machine Learning](https://ieeexplore.ieee.org/abstract/document/8258365)
+Chainalysis is the data provider for this paper.\
+- By using the data provided by chainalysis, they try to evaluate different classifiers and classify the data to 13 categories. For each cluster of the data, transactions, addresses, counterparties and exposure are defined and available. According to their evaluation, the following classifiers: Random Forests, Extremely Randomised Forests, Bagging and Gradient Boosting show the highest cross-validation accuracy.
+- Different heuristics have been proposed for different categories of addresses. An alternative method is to use unsupervised learning clustering.
+- The reason this paper didn't apply unsupervised learning clustering algorithm like k-means is that they wanted to utilized the available dataset.
 
 #### Clustering methodologies:
 - **Co-spend clustering**: whenever two or more input addresses are used for one transaction
 - **Intelligence-based clustering**: where information and intelligence outside of the blockchain obtained when data partnership is used
 - **Behavioural clustering**: where clustering is done according to known patterns that are dictated by the wallet software or systems used
 
-![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
 #### [Evaluating User Privacy in Bitcoin](https://eprint.iacr.org/2012/596.pdf)
 Financial Cryptography and Data Security 2013, Cited by 609\
 - The authors evaluated user privacy in Bitcoin by first cluster the address graph using the two heuristics**. From the user entity graph obtained from the previous graph, the authors applied k-means and Hierarchical agglomerative clustering (HAC) algorithms.
 <img width="674" alt="sim_dist" src="https://user-images.githubusercontent.com/30502668/111938015-07af6f80-8b04-11eb-83a9-bfdb857ec332.png">
+- The authors also simulated the use of Bitcoin in a University. They simulated different scenarios where 0%, 50% or 100% users are aware of possible attacks.
+
+#### [Data-driven Analysis of Bitcoin Propertiess: Exploiting the Users Graph](https://link.springer.com/article/10.1007/s41060-017-0074-x)
+International Journal of Data Science and Analytics 2018\
+Experiments:
+- analysis of clustering coefficient of the users graph
+- centrality measures of the users graph by pagerank and eigenvector networks
+- rich-get-richer analysis and Gini coefficient
+
+#### [Bitcoin Concepts, Threats, and Machine-Learning Security Solutions](https://ieeexplore.ieee.org/document/8528406)
+IEEE Access 2018\
+Survey paper. Investigated different machine-learning methods that were proposed.
+
+- Unsupervised approaches to detecting anomalous behavior in the Bitcoin transsaction network
+- Anomaly Detection in Bitcoin Network Using Unsupervised Learning Methods
+Both the abovementioned papers are archives
+
+#### [Transaction Clustering Using Network Traffic Analysis for Bitcoin and Derived Blockchains](https://ieeexplore.ieee.org/document/8845213)
+IEEE Infocom 2019
+
+#### [A GRAPH-BASED INVESTIGATION OF BITCOIN TRANSACTIONS](https://hal.inria.fr/hal-01449078/document)
+International Conference on Digital Forensics 2015\
+
