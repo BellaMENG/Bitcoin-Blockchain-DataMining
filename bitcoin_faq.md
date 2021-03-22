@@ -30,17 +30,11 @@ Check this wiki page: [feerates](https://en.bitcoin.it/wiki/Miner_fees#Feerates)
 Yes. Both mining award, which is a fixed number given the height of the block, and all transaction fees are given to the miner or group of miners who found the valid nonce.
 
 #### What are the underlying hash functions? Which procedures adopted which hash functions?
-
 #### Why is quantum computing not a potential threat for Bitcoin in terms of mining and the security of ownership of bitcoins, i.e, a threat to ECDSA?
-
 #### How does the protocol of trying nonces and broadcasting results look like? Do people implement their own versions?
-
 #### Merkle Trees and its application in Bitcoin protocol?
-
 #### Scripting in Bitcoin protocol?
-
 #### What is mempool and how does it work?
-
 #### How does Bitcoin protocol handle possible partition of the Bitcoin Network?
 According to the paper "Information propagation in the Bitcoin network", the partitions are not explicitly detected. A sudden drop of the rate of finding a new block might indicate such behavior.
 
@@ -54,35 +48,31 @@ According to the paper "Information propagation in the Bitcoin network", the par
 
 ## Questions to answer:
 #### How does the PageRank work in the graph? How is it implemented?
-
 #### How does k-means work in the graph? How to evaluate k-means algorithm?
-
 #### What is clustering in Bitcoin graph? Bitcoin address clustering, address linking, and address association
-
 #### How to integrate the idea of Bitcoin pair?
 
-### About this paper:
-[A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
+
+### [A Fistful of Bitcoins: Characterizing Payments Among Men with No Names](https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf)
 
 #### How are the two heuristics defined formally?
-
 #### How did they detect and handle false positives?
-
 #### Can heuristic 2 identify all of the change addresses correctly? (e.g. Is there a lot of false negatives?)
-
 #### Can we use machine learning to learn irregular patterns in the graph? For example, if the same change address is used twice within a short time period?
-
 #### What is the history of Bitcoin gambling and what is the current situation?
-
 #### What's the current money laundering situation and what's the research work about it like?
-
 #### What's the theft situation?
+#### (Random/irrelevant) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
 
-#### (Random) What would happen if Bitcoin was completely got rid of? In terms economics and etc.
-
-### [A First Estimation of the Proportion of Cybercriminal Entities in the Bitcoin Ecosystem using Supervised Machine Learning](https://ieeexplore.ieee.org/abstract/document/8258365)
+#### [A First Estimation of the Proportion of Cybercriminal Entities in the Bitcoin Ecosystem using Supervised Machine Learning](https://ieeexplore.ieee.org/abstract/document/8258365)
 
 #### Clustering methodologies:
 - **Co-spend clustering**: whenever two or more input addresses are used for one transaction
 - **Intelligence-based clustering**: where information and intelligence outside of the blockchain obtained when data partnership is used
 - **Behavioural clustering**: where clustering is done according to known patterns that are dictated by the wallet software or systems used
+
+![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+#### [Evaluating User Privacy in Bitcoin](https://eprint.iacr.org/2012/596.pdf)
+Financial Cryptography and Data Security 2013, Cited by 609\
+- The authors evaluated user privacy in Bitcoin by first cluster the address graph using the two heuristics**. From the user entity graph obtained from the previous graph, the authors applied k-means and Hierarchical agglomerative clustering (HAC) algorithms.
+<img width="674" alt="sim_dist" src="https://user-images.githubusercontent.com/30502668/111938015-07af6f80-8b04-11eb-83a9-bfdb857ec332.png">
