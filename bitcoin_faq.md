@@ -106,3 +106,9 @@ IEEE Infocom 2019
 #### [A GRAPH-BASED INVESTIGATION OF BITCOIN TRANSACTIONS](https://hal.inria.fr/hal-01449078/document)
 International Conference on Digital Forensics 2015\
 The authors described their algorithm for address linking in detail, by forming a tree structure.
+
+#### TODO:
+- Create a table, explain the relationship between the papers I read.
+- Make a summary about the papers. Write down what method (ML, supervised ML, unsupervised ML, so on), dataset scope, bench mark or case study, advantages and disadvantages of the methods, etc.
+- Bow-tie structure paper?
+- Lit review about clustering algorithms
