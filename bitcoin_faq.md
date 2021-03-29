@@ -130,4 +130,5 @@ Categories of methods for address clustering:
 | Unsupervised learning | Monamo et al., 2016 | first 230686 blocks of the Bitcoin Blockchain | This paper first estimated the number of clusters k for k-means clustering, then it evaluated both classic k-means and proposed k-means methods. | Using k-means algorithms to detect Bitcoin fraud | Difficult to validate the results. Future direction could be analyze the streaming data. |
 | Bitcoin P2P network | Biryukov and Tikhomirov, 2019 | Bitcoin network data ||||
 | Supervised ML and linking techniques| Portnoff et al., 2017 KDD | 4 weeks of scraped sex ads from Backpage, the Bitcoin Blockchain, and labels provided by Chainalysis | Case study of the sex ads appearing on Backpage | Two main contribution: 1. Trained a stylometry classifier to distinguish between sex ads; 2. Designed a linking technique to link sex ads to Bitcoin transactions and group them | The lack of ground truth makes it difficult to identify false positives and negatives |
-
+| Bitcoin P2P network | Yao et al., 2019, AAAI | Simulated and real Bitcoin data || Proposed a new propagation method to protect user against various deanonymization attacks ||
+| Bitcoin P2P network | Fanti and Viswanath, 2017, NIPS |||||
