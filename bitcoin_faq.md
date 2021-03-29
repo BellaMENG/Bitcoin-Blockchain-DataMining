@@ -114,6 +114,13 @@ The authors described their algorithm for address linking in detail, by forming 
 - What clustering techniques does Chainalysis use?
 - Lit review about clustering algorithms
 
+Categories of methods for address clustering:
+- Based on Bitcoin P2P network
+- Based on the Bitcoin Blockchain
+  - propose new heuristics
+  - unsupervised learning
+  - supervised learning
+
 | Method      | Reference   | Scope of Data | Evaluation Method | Contribution  | Limitation  |
 | ----------- | ----------- | -----------   | -----------       | -----------   | ----------- |
 | Explain the effectiveness of the multi-input heuristics | Harrigan and Fretter, 2016 | First 396577 blocks of the Bitcoin Blockchain |  | Analyzed the primary reasons behind the multi-input heuristics, high-levels of address reuse and merging, existence of super-clusters and incrememtal  growth of clusters | Their future work wants to focus on the internal structure of address clusters |
