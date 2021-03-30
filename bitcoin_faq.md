@@ -131,5 +131,5 @@ Categories of methods for address clustering:
 | Bitcoin P2P network | Biryukov and Tikhomirov, 2019 | Bitcoin network data ||||
 | Supervised ML and linking techniques| Portnoff et al., 2017 KDD | **Case study** 4 weeks of scraped sex ads from Backpage, the Bitcoin Blockchain, and labels provided by Chainalysis | Case study of the sex ads appearing on Backpage | Two main contribution: 1. Trained a stylometry classifier to distinguish between sex ads; 2. Designed a linking technique to link sex ads to Bitcoin transactions and group them | The lack of ground truth makes it difficult to identify false positives and negatives |
 | Bitcoin P2P network | Yao et al., 2019, AAAI | Simulated and real Bitcoin data || Proposed a new propagation method to protect user against various deanonymization attacks ||
-| Bitcoin P2P network | Fanti and Viswanath, 2017, NIPS ||| Analyzed whether the change of Bitcoin core flooding mechanism protocol from trickle to diffusion ||
+| Bitcoin P2P network | Fanti and Viswanath, 2017, NIPS || Simulated both trickle and diffusion flooding mechanisms on a snapshot of Bitcoin in 2015 | Analyzed whether the change of Bitcoin core flooding mechanism protocol from trickle to diffusion ||
 
