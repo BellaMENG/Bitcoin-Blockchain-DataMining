@@ -146,4 +146,5 @@ Clustering based on the Bitcoin Blockchain.
 
 **Third Category:**\
 Classification of the Bitcoin address clusters.
-- Inputs: Transaction history on the Bitcoin Blockchain and 
+- Inputs: Transaction history on the Bitcoin Blockchain and external information.
+- Output: Cluster the Bitcoin addresses and put tags on the clusters, claiming a certain group of Bitcoin addresses are classified to provide a certain service.
