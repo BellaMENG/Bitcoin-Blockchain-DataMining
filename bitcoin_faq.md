@@ -133,8 +133,17 @@ Categories of methods for address clustering:
 | Bitcoin P2P network | Yao et al., 2019, AAAI | Simulated and real Bitcoin data || Proposed a new propagation method to protect user against various deanonymization attacks ||
 | Bitcoin P2P network | Fanti and Viswanath, 2017, NIPS || Simulated both trickle and diffusion flooding mechanisms on a snapshot of Bitcoin in 2015 | Analyzed whether the change of Bitcoin core flooding mechanism protocol from trickle to diffusion ||
 
-Problem Formulations:
-**First Category:**
+Problem Formulations:\
+**First Category:**\
 Clustering based on transaction and computer network information.
--Input: For one transaction information being broadcast, the inputs are the IP addresses and timestamps corresponding to these IP addresses.
--Output: Cluster the transactions that are issued from one client. According to the result of the clustering algorithm, it can be claimed that these transactions belong to the same client, but the IP address of the client is not necessarily revealed. However, if the origin of some transactions in this cluster is revealed, the origins of all transactions in this cluster is compromised.
+- Inputs: For one transaction information being broadcast, the inputs are the IP addresses and timestamps corresponding to these IP addresses.
+- Output: Cluster the transactions that are issued from one client. According to the result of the clustering algorithm, it can be claimed that these transactions belong to the same client, but the IP address of the client is not necessarily revealed. However, if the origin of some transactions in this cluster is revealed, the origins of all transactions in this cluster is compromised.
+
+**Second Category:**\
+Clustering based on the Bitcoin Blockchain.
+- Inputs: Transaction history on the Bitcoin Blockchain and external informmation.
+- Output: Cluster the Bitcoin addresses appeared in the transactions and claim all Bitcoin addresses in a certain cluster belong to the same entity.
+
+**Third Category:**\
+Classification of the Bitcoin address clusters.
+- Inputs: Transaction history on the Bitcoin Blockchain and 
