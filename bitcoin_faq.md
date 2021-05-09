@@ -111,4 +111,40 @@ The authors described their algorithm for address linking in detail, by forming 
 - Create a table, explain the relationship between the papers I read.
 - Make a summary about the papers. Write down what method (ML, supervised ML, unsupervised ML, so on), dataset scope, bench mark or case study, advantages and disadvantages of the methods, etc.
 - Bow-tie structure paper?
+- What clustering techniques does Chainalysis use?
 - Lit review about clustering algorithms
+
+Categories of methods for address clustering:
+- Based on Bitcoin P2P network
+- Based on the Bitcoin Blockchain
+  - propose new heuristics
+  - unsupervised learning
+  - supervised learning
+
+| Method      | Reference   | Scope of Data | Evaluation Method | Contribution  | Limitation  |
+| ----------- | ----------- | -----------   | -----------       | -----------   | ----------- |
+| Explain the effectiveness of the multi-input heuristics | Harrigan and Fretter, 2016 | First 396577 blocks of the Bitcoin Blockchain | **Simulation** | Analyzed the primary reasons behind the multi-input heuristics, high-levels of address reuse and merging, existence of super-clusters and incrememtal  growth of clusters | Their future work wants to focus on the internal structure of address clusters |
+| New heuristics | Meiklejohn et al., 2013 | 231207 Blocks of Bitcoin Blockchain data, they collected external data by participating in different services, they also collected data from other sources including forums and wikileaks | **Case study** based on the Satoshi dice gambling game, money laundering in Silk Road case, and Bitcoin theft tracking| Developed new heuristics to charactise different services | This paper tried to de-anonymize the current Bitcoin Blockchain network, however, the heuristics may no longer applicable as the Bitcoin Blockchain network evolves |
+| Supervised ML | Harlev et al., 2018 | Data is provided by Chainalysis which was already clustered. The data contains 200 million transactions pretaining to 434 clusters | **ML Evaluations** They fed the data into different supervised machine learning algorithms, and list the accuracy, precision, recall, f1-score, support | With the help of the data provider, they are able to train supervised learning methods to categories address clusters | The data used in thie paper was labeled by different techniques by the data provider. These techniques include manually searching and label different addresses, participating in different services and other techniques that are not easy to replicate without enough resources |
+| Supervised ML | Sun Yin and Vatrapu, 2017 | The data is also provided by Chainalysis and the scope of the data is likely to be the same as the previous paper | **ML Evaluations** The researchers evaluated different supervised learning algorithms. | This paper gave a first estimation of the proportion of different activities in the Bitcoin ecosystem by two of the best performing algorithms | Same as above. One of the reasons they did not perform unsupervised learning is because the researchers wanted to fully utilized the provided data |
+| Unsupervised learning | Monamo et al., 2016 | first 230686 blocks of the Bitcoin Blockchain | This paper first estimated the number of clusters k for k-means clustering, then it evaluated both classic k-means and proposed k-means methods. | Using k-means algorithms to detect Bitcoin fraud | Difficult to validate the results. Future direction could be analyze the streaming data. |
+| Bitcoin P2P network | Biryukov and Tikhomirov, 2019 | Bitcoin network data ||||
+| Supervised ML and linking techniques| Portnoff et al., 2017 KDD | **Case study** 4 weeks of scraped sex ads from Backpage, the Bitcoin Blockchain, and labels provided by Chainalysis | **Case study** of the sex ads appearing on Backpage | Two main contribution: 1. Trained a stylometry classifier to distinguish between sex ads; 2. Designed a linking technique to link sex ads to Bitcoin transactions and group them | The lack of ground truth makes it difficult to identify false positives and negatives |
+| Bitcoin P2P network | Yao et al., 2019, AAAI | Simulated and real Bitcoin data || Proposed a new propagation method to protect user against various deanonymization attacks ||
+| Bitcoin P2P network | Fanti and Viswanath, 2017, NIPS || Simulated both trickle and diffusion flooding mechanisms on a snapshot of Bitcoin in 2015 | Analyzed whether the change of Bitcoin core flooding mechanism protocol from trickle to diffusion ||
+
+Problem Formulations:\
+**First Category:**\
+Clustering based on transaction and computer network information.
+- Inputs: For one transaction information being broadcast, the inputs are the IP addresses and timestamps corresponding to these IP addresses.
+- Output: Cluster the transactions that are issued from one client. According to the result of the clustering algorithm, it can be claimed that these transactions belong to the same client, but the IP address of the client is not necessarily revealed. However, if the origin of some transactions in this cluster is revealed, the origins of all transactions in this cluster is compromised.
+
+**Second Category:**\
+Clustering based on the Bitcoin Blockchain.
+- Inputs: Transaction history on the Bitcoin Blockchain and external informmation.
+- Output: Cluster the Bitcoin addresses appeared in the transactions and claim all Bitcoin addresses in a certain cluster belong to the same entity.
+
+**Third Category:**\
+Classification of the Bitcoin address clusters.
+- Inputs: Transaction history on the Bitcoin Blockchain and external information.
+- Output: Cluster the Bitcoin addresses and put tags on the clusters, claiming a certain group of Bitcoin addresses are classified to provide a certain service.
