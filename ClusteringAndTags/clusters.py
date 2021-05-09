@@ -1,3 +1,13 @@
+'''
+python3 clusters.py
+Name of the cluster id file: largest5k_cluster_ids.dat
+Number of addresses: 426868262
+Number of clusters: 278534077
+load the addresses, filename: largest5k_addresses.dat
+Number of addresses:  5000
+There are 2441 clusters for 5000 addresses.
+'''
+
 import blocksci
 import csv
 from util import get_addrs

@@ -1,3 +1,14 @@
+'''
+python3 getTags.py
+Number of addresses: 426868262
+file name of the addresses:largest5k_addresses.dat
+Number of addresses:  5000
+file name of tags:walletexplorer.yaml
+file name of output:5kaddr_with_label.dat
+Number of addresses with label: 30
+name of label distribution output file: label_dist.dat
+'''
+
 import blocksci
 import yaml
 import os

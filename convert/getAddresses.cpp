@@ -6,6 +6,16 @@
 //  Copyright © 2021 Bella MENG. All rights reserved.
 //
 
+/*
+ ./getAddr ../../datasets/sorted_all_index.dat ../../../addresses.dat ../../datasets/selected_addresses.dat
+ start to read in selected index
+ Start time elapse:
+ finished reading index
+ start to read in all addresses
+ finished reading all addresses
+ Time elapse: 253931243276 s
+ */
+
 #include "util.h"
 
 void Usage() {

@@ -1,6 +1,16 @@
 import blocksci
 dataset_folder = "/home/zmengaa/data500k/txedges/datasets/"
 
+'''
+python3 analysis.py
+
+Number of addresses:  426868262
+file name of the addresses file:largest5k_addresses.dat
+number of addresses: 5000
+file path of output file to number of in_txes: largest5k_nintxes.dat
+file path of output file to number of out_txes: largest5k_nouttxes.dat
+'''
+
 def get_balances(chain, addresses, balance_file):
     balances = []
     for address in addresses:

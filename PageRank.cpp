@@ -12,7 +12,29 @@
 #include <chrono>
 
 using namespace chrono;
+/*
+ ./getweights /home/zmengaa/data500k/txedges/datasets/extracted_col.dat /home/zmengaa/data500k/txedges/datasets/extracted_row.dat /home/zmengaa/data500k/txedges/datasets/extracted_deg.dat /home/zmengaa/data500k/txedges/datasets/txedges.dat /home/zmengaa/data500k/txedges/datasets/weights.dat 1
+ ----Start to read the col_index to vector----
+ data size: 4
+ number of edges: 2219053854
+ ----Start to read the row_index to vector----
+ data size: 4
+ number of nodes: 370269747
+ Read files time: 9230 ms
 
+ read in or calculate degrees: true
+ read in degrees:
+ before read file:
+ after read file:
+
+ start time elapse:
+
+ size of the weights vector: 1736599145
+
+ number of edges: 2219053854
+
+ Time elapse: 2034017275018 s
+ */
 void PageRank::initGraph(const char* col_fp, const char* row_fp, const char* degree_fp, const char* col_fp_t, const char* row_fp_t, const char* degree_fp_t) {
     
     graph_ = new CSRGraph();
